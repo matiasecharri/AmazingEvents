@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
 }
 
 
@@ -9,7 +10,7 @@
 }
 
 header{
-    transition: all 2000ms;
+    transition: all 200ms;
       top: 0;
  
 
@@ -17,6 +18,10 @@ header{
    
     
 }
+
+
+
+
 
 #header{
 background-color: rgb(36, 36, 36) ;
@@ -33,15 +38,18 @@ min-height: 12vh;
     height: 40px;
     width: 40px;
     background-color: rgb(221, 221, 221);
-}
+}nav
 .mousetop:hover{
     margin-top:-10px ;
     transition:ease-in-out 200ms;
+    transition-duration: 200ms;
 }
 
 img:hover{
     transform: scale(1.05);
-    transition: all 300ms;
+    
+    transition: all 600ms;
+    
 }
 
 
@@ -51,9 +59,10 @@ img:hover{
 }
 
 .nav-link{
-color: rgb(218, 191, 38);
-font-family:Verdana, Geneva, Tahoma, sans-serif;
+color: rgb(236, 236, 236);
+
 font-size: 12px;
+
 
 }
 
@@ -61,6 +70,7 @@ font-size: 12px;
 .nav-link:hover{
 
     color: rgb(214, 93, 134);
+
 }
 #navnose{
     background-color: rgb(59, 59, 59);
@@ -69,7 +79,14 @@ color: rgb(160, 157, 157);
 }
 
 .containertitle{
-    background-color: rgb(255, 183, 29);
+    background-color: #A9C9FF;
+    background-image: linear-gradient(58deg, #A9C9FF 0%, #FFBBEC 100%);
+    
+    
+    
+
+    
+    
     min-height: 20vh;
     width: 100%;
     display: flex;
@@ -81,8 +98,9 @@ h1{
     margin-top: 10px;
     font-size: 700%;
        color: rgb(41, 39, 39);
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-border: 2px dashed rgb(54, 53, 53);
+font-family: Poppins;
+
+border: 2px dashed rgba(54, 53, 53, 0.205);
 border-inline-start: 50px;
 border-inline-end: 50px;
 
@@ -99,19 +117,27 @@ h1:hover{
   
 }
 
+btn btn-outline-success:hover{
+    background-color: #A9C9FF;
+}
+
 main{ 
     display: flex;
     flex-wrap: wrap
     ;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 min-height: 55vh;
-background-color: rgb(247, 198, 94);
+background-color: rgb(255, 255, 255);
 gap: 45px;
 
 
-
 }
+
+.mainext{}
+
+
 
 .altermain{
     display: flex;
@@ -147,14 +173,7 @@ gap: 45px;
 
 
 
-.card{
-    background-color: rgb(23, 24, 24);
-    color: white;
-    margin-top: 15px;
-margin-bottom: 15px;
-box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
 
-}
 
 
 
@@ -164,6 +183,20 @@ box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
     color: rgb(255, 255, 255);
     background-color: #e2176b;
     height: 35px;
+
+}
+
+.btn:hover{
+
+    color: rgb(255, 255, 255);
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    
+   
+    
+    
+    height: 35px;
+  
 
 }
 
@@ -239,16 +272,21 @@ border-radius: 5px;
 
         width: 100%;
        min-height:2vh;
-  background-color:  rgb(247, 198, 94);
+  background-color:  rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   gap: 5vw;
 align-items: center;
+padding-bottom: 10px;
 
     
     
     
     }
+
+   #containerbaralterno{
+    background-color: #222121;
+   }
 
 
 
@@ -265,6 +303,9 @@ display: flex;
 ;
 
   }
+
+  .form-check-label{font-family: 'Poppins', sans-serif;
+font-weight: 600;}
 
 .checks5{
     margin-top: 10px;
@@ -284,8 +325,6 @@ width: 45%;
 
 label{
 
-
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
 font-size: 12px;
 
 }
@@ -313,7 +352,8 @@ display: flex;
     background-color: rgb(185, 19, 102);
     margin-top: 15px;
 margin-bottom: 15px;
-box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+border-radius: 20px;
 
 }
 
@@ -349,8 +389,8 @@ box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
 }
 
 .achedos:hover{
-    color: rgb(236, 209, 52);
-    font-size: 350%;
+    color: rgb(255, 255, 255);
+    font-size: 310%;
     transition:ease-in-out 560ms;
 }
 
@@ -382,6 +422,14 @@ box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
 
 
 
+@media (max-width: 750px) {
+
+    .upcoming{font-size: 40px;}
+    .contact1{font-size: 40px;}
+
+}
+
+
 
 
 
@@ -407,13 +455,56 @@ box-shadow: 2px 2px 15px 4px rgb(196, 156, 70);
 }
 
 
+.card{
+    width: 290px;
+    height: 430px;
 
+    background-color: rgb(23, 24, 24);
+    color: white;
+    margin-top: 15px;
+margin-bottom: 15px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+display: flex;
+flex-direction: column;
+
+
+}
+.card:hover{
+    box-shadow: rgb(9, 16, 24) 0px 20px 30px -10px;
+transition-duration: 500ms;
+border-radius:0px 0px 60px 60px;
+transform: scale(1.04);
+transition-duration: 500ms;
+}
 
   
+.card img{
+    width: 100%;
+    height: 40%;
+   
+}
 
 
 
 
+.cuadrado{
+   
+    width: 100%;
+    height: 80px;
+   
+    padding: 15px;
+    margin-bottom: 35px;
+}
 
 
+.botones{width: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 
+
+.card-title{
+margin-left: 15px;
+margin-top: 10px;}
