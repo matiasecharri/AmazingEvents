@@ -300,6 +300,7 @@ main {
   min-height: 55vh;
   background-color: rgb(255, 255, 255);
   gap: 45px;
+padding-bottom: 45px;
 }
 
 .mainsincheck{ min-height: 59vh;
@@ -456,13 +457,13 @@ label {
 }
 
 .table {
-  background-color: #3a3939;
+  background-color: #2c2e2d;
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 20px;
   color: #ffffff;
 
-  border: rgb(26, 25, 25) solid 1px;
+  
   border-radius: 20px;
   width: 70%;
 }
@@ -556,6 +557,8 @@ width: 390px;
 .card-title {
   margin-left: 15px;
   margin-top: 10px;
+  
+ 
 }
 
 
