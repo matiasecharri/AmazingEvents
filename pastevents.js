@@ -1,3 +1,5 @@
+//// APARECER CARTAS DE PAST//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 let container = document.getElementById("cartaid");
 for (i = 0; i < events.length; i++) {
   if (events[i].date < currentDate) {
@@ -38,7 +40,7 @@ function impressCheck(stringQueSepareArriba) {
 
 arrayMapeadoDeEventos.forEach(impressCheck);
 
-// EVENTOS -------------------------------------------------------------------------
+// EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
 
@@ -64,7 +66,7 @@ search.addEventListener("change", (evento) => {
       <div class="botones">
       <a href="./details.html" class="btn">Know more info</a>
       <div/>
-    </div>{
+    </div>
     </div>`;}
 
   }

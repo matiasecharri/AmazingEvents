@@ -18,6 +18,8 @@ for (i = 0; i < events.length; i++) {
   </div>`;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------------------
 //HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
 
 let checkbox = document.getElementById("checkboxbar"); //Traje el contenedor padre, para que los checkbox queden dentro de el.
@@ -39,7 +41,8 @@ function impressCheck(stringQueSepareArriba) {
 
 arrayMapeadoDeEventos.forEach(impressCheck);
 
-// EVENTOS -------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------
+// EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
 
