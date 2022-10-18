@@ -84,3 +84,54 @@ checkbox.addEventListener("change", (evento) => {
 });
 
 //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
+
+
+// var parameter = "" // variable que va a contener el valor del select
+// var data = [] // array que va a contener los eventos a imprimir
+// var valueOfInput = "" // variable que va a contener el valor del input
+
+// function toSelect (event) { // funcion que captura el valor proveniente del select e imprime el array de los eventos correspondientes
+//     parameter = event.target.value // defino el valor del evento
+//     document.querySelector("#events").innerHTML = "" // limpio la impresion de HTML
+//     if (parameter == "" || parameter == "select category" || parameter == undefined) {
+//         if (valueOfInput == "" || valueOfInput == undefined) {
+//             data = sortedEvents
+//         } else {
+//             data = sortedEvents.filter(event =>
+//                 event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
+//                 event.name.toLowerCase().includes(valueOfInput.toLowerCase())
+//             )
+//         }
+//     } else {
+//         if (valueOfInput == "" || valueOfInput == undefined) {
+//             data = sortedEvents.filter(event => event.category == parameter)
+//         } else {
+//             data = sortedEvents.filter(event =>
+//                 event.category == parameter &&
+//                 (event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
+//                 event.name.toLowerCase().includes(valueOfInput.toLowerCase()))
+//             )
+//         }
+//     }
+//     toPrint(data) // imprimimos en html
+//     return parameter
+// }
+
+// function toSearch (event) { // funcion que captura el valor proveniente del input e imprime el array de los eventos correspondientes
+//     valueOfInput = event.target.value // defino el valor del evento
+//     document.querySelector("#events").innerHTML = "" // limpio la impresion de HTML
+//     if (parameter == "" || parameter == undefined || parameter == "select category") {
+//         data = sortedEvents.filter(event =>
+//             event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
+//             event.name.toLowerCase().includes(valueOfInput.toLowerCase())
+//         )
+//     } else {
+//         data = sortedEvents.filter(event =>
+//             event.category.toLowerCase() === parameter.toLowerCase() &&
+//             (event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
+//             event.name.toLowerCase().includes(valueOfInput.toLowerCase()))
+//         )
+//     }
+//     toPrint(data) // imprimimos en html
+//     return valueOfInput
+// }

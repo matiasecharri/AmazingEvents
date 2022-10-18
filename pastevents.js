@@ -1,10 +1,10 @@
 //// APARECER CARTAS DE PAST//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let container = document.getElementById("cartaid");
-function imprimir(arreglo3){
-for (i = 0; i < arreglo3.length; i++) {
-  if (arreglo3[i].date < currentDate) {
-    container.innerHTML += ` 
+function imprimir(arreglo3) {
+  for (i = 0; i < arreglo3.length; i++) {
+    if (arreglo3[i].date < currentDate) {
+      container.innerHTML += ` 
   <div class="card">
   <img src="${arreglo3[i].image}" class="card-img-top" alt="${events[i].name}">
   <div class="card-body-d-flex align-items-around">
@@ -18,10 +18,10 @@ for (i = 0; i < arreglo3.length; i++) {
     <div/>
   </div>
   </div>`;
+    }
   }
 }
-}
-imprimir(events)
+imprimir(events);
 
 //HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,7 +56,7 @@ search.addEventListener("change", (evento) => {
   );
   container.innerHTML = " ";
 
-  imprimir(eventTextFiltered)
+  imprimir(eventTextFiltered);
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -78,8 +78,8 @@ checkbox.addEventListener("change", (evento) => {
   });
   container.innerHTML = " ";
   if (arrayCategoriasChequeadas.length !== 0) {
-    imprimir(eventosCategoriaChequeada)
+    imprimir(eventosCategoriaChequeada);
   } else {
-    imprimir(events)
+    imprimir(events);
   }
 });

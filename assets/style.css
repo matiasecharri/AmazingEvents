@@ -237,6 +237,9 @@ label {
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
+ 
+  margin: 5px;
+  
   
  
 }
@@ -317,6 +320,37 @@ min-height: 59vh;
 
 
 }
+
+
+
+
+@media (max-width: 565px) {
+ 
+main{flex-direction: column-reverse !important;
+align-items: center;
+justify-content: center;}
+
+.cardetails{
+  font-size: 15px;
+  margin-left: 20px;
+  color: #ffffff;
+  
+}
+
+.cardetails h5{text-align: center;
+font-size: 30px;
+margin-bottom: 24px;}
+
+#cardimg7{border-radius: 0px;
+width: 1px;
+height: 1px;}
+
+
+.blackMovil{background-color: #222222;}
+}
+
+
+
 
 @media (max-width: 750px) {
   .upcoming {
