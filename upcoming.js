@@ -1,23 +1,25 @@
 //// APARECER CARTAS DE UPCOMING //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let container = document.getElementById("cartaid");
-for (i = 0; i < events.length; i++) {
-  if (events[i].date > currentDate) {
+function imprimir(arreglo2){
+for (i = 0; i < arreglo2.length; i++) {arreglo2
+  if (arreglo2[i].date > currentDate) {
     container.innerHTML += ` 
   <div class="card">
-  <img src="${events[i].image}" class="card-img-top" alt="${events[i].name}">
+  <img src="${arreglo2[i].image}" class="card-img-top" alt="${arreglo2[i].name}">
   <div class="card-body-d-flex align-items-around">
-    <h5 class="card-title">${events[i].name}
+    <h5 class="card-title">${arreglo2[i].name}
   </h5><div class="cuadrado">
-    <p class="card-text">${events[i].description}</p>
+    <p class="card-text">${arreglo2[i].description}</p>
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo2[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;}
-}
+}}
+imprimir(events)
 
 //HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -52,24 +54,7 @@ search.addEventListener("change", (evento) => {
   );
   container.innerHTML = " ";
 
-  for (i = 0; i < eventTextFiltered.length; i++) {
-    if (eventTextFiltered[i].date > currentDate) {
-      container.innerHTML += ` 
-    <div class="card">
-    <img src="${eventTextFiltered[i].image}" class="card-img-top" alt="${eventTextFiltered[i].name}">
-    <div class="card-body-d-flex align-items-around">
-      <h5 class="card-title">${eventTextFiltered[i].name}
-    </h5><div class="cuadrado">
-      <p class="card-text">${eventTextFiltered[i].description}</p>
-      </div>
-     
-      <div class="botones">
-      <a href="details.html?evento=${eventTextFiltered[i]._id}" class="btn">Know more info</a>
-      <div/>
-    </div>
-    </div>`;}
-
-  }
+  imprimir(eventTextFiltered)
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -91,40 +76,8 @@ checkbox.addEventListener("change", (evento) => {
   });
   container.innerHTML = " ";
   if (arrayCategoriasChequeadas.length !== 0) {
-    for (evento of eventosCategoriaChequeada) {
-      container.innerHTML += ` 
-    <div class="card">
-    <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-    <div class="card-body-d-flex align-items-around">
-      <h5 class="card-title">${evento.name}
-    </h5><div class="cuadrado">
-      <p class="card-text">${evento.description}</p>
-      </div>
-     
-      <div class="botones">
-      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
-      <div/>
-    </div>
-    </div>`;
-    }
+    imprimir(eventosCategoriaChequeada)
   } else {
-    for (i = 0; i < events.length; i++) {
-      if (events[i].date > currentDate) {
-        container.innerHTML += ` 
-      <div class="card">
-      <img src="${events[i].image}" class="card-img-top" alt="${events[i].name}">
-      <div class="card-body-d-flex align-items-around">
-        <h5 class="card-title">${events[i].name}
-      </h5><div class="cuadrado">
-        <p class="card-text">${events[i].description}</p>
-        </div>
-       
-        <div class="botones">
-        <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
-        <div/>
-      </div>
-      </div>`;
-      }
-    }
+   imprimir(events)
   }
 });
