@@ -1,23 +1,25 @@
 //-------------------------------------------------------HACER APARECER CARTAS------------------------------------------------------------------------------------------------
 
 let container = document.getElementById("cartaid");
-for (i = 0; i < events.length; i++) {
-  container.innerHTML += ` 
+function imprimir(arreglo) {
+  for (i = 0; i < arreglo.length; i++) {
+    container.innerHTML += ` 
   <div class="card">
-  <img src="${events[i].image}" class="card-img-top" alt="${events[i].name}">
+  <img src="${arreglo[i].image}" class="card-img-top" alt="${arreglo[i].name}">
   <div class="card-body-d-flex align-items-around">
-    <h5 class="card-title">${events[i].name}
+    <h5 class="card-title">${arreglo[i].name}
   </h5><div class="cuadrado">
-    <p class="card-text">${events[i].description}</p>
+    <p class="card-text">${arreglo[i].description}</p>
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
+  }
 }
-
+imprimir(events);
 
 //----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
@@ -53,23 +55,7 @@ search.addEventListener("change", (evento) => {
   );
   container.innerHTML = " ";
 
-  
-  for (evento of eventTextFiltered) {
-    container.innerHTML += ` 
-    <div class="card">
-    <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-    <div class="card-body-d-flex align-items-around">
-      <h5 class="card-title">${evento.name}
-    </h5><div class="cuadrado">
-      <p class="card-text">${evento.description}</p>
-      </div>
-     
-      <div class="botones">
-      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
-      <div/>
-    </div>
-    </div>`;
-  }
+  imprimir(eventTextFiltered);
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -91,42 +77,10 @@ checkbox.addEventListener("change", (evento) => {
   });
   container.innerHTML = " ";
   if (arrayCategoriasChequeadas.length !== 0) {
-    for (evento of eventosCategoriaChequeada) {
-      container.innerHTML += ` 
-    <div class="card">
-    <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-    <div class="card-body-d-flex align-items-around">
-      <h5 class="card-title">${evento.name}
-    </h5><div class="cuadrado">
-      <p class="card-text">${evento.description}</p>
-      </div>
-     
-      <div class="botones">
-      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
-      <div/>
-    </div>
-    </div>`;
-    }
+    imprimir(eventosCategoriaChequeada);
   } else {
-    for (evento of events) {
-      container.innerHTML += ` 
-  <div class="card">
-  <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-  <div class="card-body-d-flex align-items-around">
-    <h5 class="card-title">${evento.name}
-  </h5><div class="cuadrado">
-    <p class="card-text">${evento.description}</p>
-    </div>
-   
-    <div class="botones">
-    <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
-    <div/>
-  </div>
-  </div>`;
-    }
+    imprimir(events);
   }
 });
 
-
 //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
-
