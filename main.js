@@ -1,4 +1,4 @@
-//HACER APARECER CARTAS--------------------------------------------------------
+//-------------------------------------------------------HACER APARECER CARTAS------------------------------------------------------------------------------------------------
 
 let container = document.getElementById("cartaid");
 for (i = 0; i < events.length; i++) {
@@ -18,9 +18,7 @@ for (i = 0; i < events.length; i++) {
   </div>`;
 }
 
-
-// --------------------------------------------------------------------------------------------------------------------------------
-//HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
 let checkbox = document.getElementById("checkboxbar"); //Traje el contenedor padre, para que los checkbox queden dentro de el.
 let arrayMapeadoDeEventos = new Set( //Creo una nueva variable la cual es igual a un array, usando MAP me saco de encima la información que no me sirve y como la tengo duplicada uso new Set
@@ -70,4 +68,46 @@ search.addEventListener("change", (evento) => {
     </div>
     </div>`;
   }
+});
+
+//  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
+
+let arrayCategoriasChequeadas = [];
+
+checkbox.addEventListener("change", (evento) => {
+  if (evento.target.checked) {
+    arrayCategoriasChequeadas.push(evento.target.value);
+  } else {
+    let posicionDelNoChequeado = arrayCategoriasChequeadas.indexOf(
+      evento.target.value
+    );
+    arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
+  }
+
+  let eventosCategoriaChequeada = events.filter(function (evento)  {
+    return arrayCategoriasChequeadas.includes(evento.category);
+    
+  });
+  container.innerHTML = " ";
+
+  for (evento of eventosCategoriaChequeada) {
+    container.innerHTML += ` 
+    <div class="card">
+    <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+    <div class="card-body-d-flex align-items-around">
+      <h5 class="card-title">${evento.name}
+    </h5><div class="cuadrado">
+      <p class="card-text">${evento.description}</p>
+      </div>
+     
+      <div class="botones">
+      <a href="./details.html" class="btn">Know more info</a>
+      <div/>
+    </div>
+    </div>`;
+  }
+
+
+
+  
 });
