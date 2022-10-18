@@ -84,14 +84,13 @@ checkbox.addEventListener("change", (evento) => {
     arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
   }
 
-  let eventosCategoriaChequeada = events.filter(function (evento)  {
+  let eventosCategoriaChequeada = events.filter(function (evento) {
     return arrayCategoriasChequeadas.includes(evento.category);
-    
   });
   container.innerHTML = " ";
-
-  for (evento of eventosCategoriaChequeada) {
-    container.innerHTML += ` 
+  if (arrayCategoriasChequeadas.length !== 0) {
+    for (evento of eventosCategoriaChequeada) {
+      container.innerHTML += ` 
     <div class="card">
     <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
     <div class="card-body-d-flex align-items-around">
@@ -105,9 +104,23 @@ checkbox.addEventListener("change", (evento) => {
       <div/>
     </div>
     </div>`;
+    }
+  } else {
+    for (evento of events) {
+      container.innerHTML += ` 
+  <div class="card">
+  <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+  <div class="card-body-d-flex align-items-around">
+    <h5 class="card-title">${evento.name}
+  </h5><div class="cuadrado">
+    <p class="card-text">${evento.description}</p>
+    </div>
+   
+    <div class="botones">
+    <a href="./details.html" class="btn">Know more info</a>
+    <div/>
+  </div>
+  </div>`;
+    }
   }
-
-
-
-  
 });

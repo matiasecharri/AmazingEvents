@@ -72,3 +72,59 @@ search.addEventListener("change", (evento) => {
   }
 });
 
+//  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
+
+let arrayCategoriasChequeadas = [];
+
+checkbox.addEventListener("change", (evento) => {
+  if (evento.target.checked) {
+    arrayCategoriasChequeadas.push(evento.target.value);
+  } else {
+    let posicionDelNoChequeado = arrayCategoriasChequeadas.indexOf(
+      evento.target.value
+    );
+    arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
+  }
+
+  let eventosCategoriaChequeada = events.filter(function (evento) {
+    return arrayCategoriasChequeadas.includes(evento.category);
+  });
+  container.innerHTML = " ";
+  if (arrayCategoriasChequeadas.length !== 0) {
+    for (evento of eventosCategoriaChequeada) {
+      container.innerHTML += ` 
+    <div class="card">
+    <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+    <div class="card-body-d-flex align-items-around">
+      <h5 class="card-title">${evento.name}
+    </h5><div class="cuadrado">
+      <p class="card-text">${evento.description}</p>
+      </div>
+     
+      <div class="botones">
+      <a href="./details.html" class="btn">Know more info</a>
+      <div/>
+    </div>
+    </div>`;
+    }
+  } else {
+    for (i = 0; i < events.length; i++) {
+      if (events[i].date > currentDate) {
+        container.innerHTML += ` 
+      <div class="card">
+      <img src="${events[i].image}" class="card-img-top" alt="${events[i].name}">
+      <div class="card-body-d-flex align-items-around">
+        <h5 class="card-title">${events[i].name}
+      </h5><div class="cuadrado">
+        <p class="card-text">${events[i].description}</p>
+        </div>
+       
+        <div class="botones">
+        <a href="./details.html" class="btn">Know more info</a>
+        <div/>
+      </div>
+      </div>`;
+      }
+    }
+  }
+});
