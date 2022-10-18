@@ -13,7 +13,7 @@ for (i = 0; i < events.length; i++) {
     </div>
    
     <div class="botones">
-    <a href="./details.html" class="btn">Know more info</a>
+    <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;}
@@ -64,7 +64,7 @@ search.addEventListener("change", (evento) => {
       </div>
      
       <div class="botones">
-      <a href="./details.html" class="btn">Know more info</a>
+      <a href="details.html?evento=${eventTextFiltered[i]._id}" class="btn">Know more info</a>
       <div/>
     </div>
     </div>`;}
@@ -102,7 +102,7 @@ checkbox.addEventListener("change", (evento) => {
       </div>
      
       <div class="botones">
-      <a href="./details.html" class="btn">Know more info</a>
+      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
       <div/>
     </div>
     </div>`;
@@ -120,7 +120,7 @@ checkbox.addEventListener("change", (evento) => {
         </div>
        
         <div class="botones">
-        <a href="./details.html" class="btn">Know more info</a>
+        <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
         <div/>
       </div>
       </div>`;

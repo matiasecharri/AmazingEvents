@@ -12,11 +12,12 @@ for (i = 0; i < events.length; i++) {
     </div>
    
     <div class="botones">
-    <a href="./details.html" class="btn">Know more info</a>
+    <a href="details.html?evento=${events[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
 }
+
 
 //----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
@@ -52,6 +53,7 @@ search.addEventListener("change", (evento) => {
   );
   container.innerHTML = " ";
 
+  
   for (evento of eventTextFiltered) {
     container.innerHTML += ` 
     <div class="card">
@@ -63,7 +65,7 @@ search.addEventListener("change", (evento) => {
       </div>
      
       <div class="botones">
-      <a href="./details.html" class="btn">Know more info</a>
+      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
       <div/>
     </div>
     </div>`;
@@ -100,7 +102,7 @@ checkbox.addEventListener("change", (evento) => {
       </div>
      
       <div class="botones">
-      <a href="./details.html" class="btn">Know more info</a>
+      <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
       <div/>
     </div>
     </div>`;
@@ -117,10 +119,14 @@ checkbox.addEventListener("change", (evento) => {
     </div>
    
     <div class="botones">
-    <a href="./details.html" class="btn">Know more info</a>
+    <a href="details.html?evento=${evento._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
     }
   }
 });
+
+
+//  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
+

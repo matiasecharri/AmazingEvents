@@ -233,17 +233,34 @@ label {
 }
 
 .cardetails {
-  background-color: rgb(185, 19, 102);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  border-radius: 20px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+ 
+ 
+ 
 }
 
+.detailsTitle{color: #d41062;
+  font-weight: 450;
+font-size: 40px;}
+
 #cardimg7 {
-  height: 35rem;
-  width: 30rem;
+  height: 290px;
+  width: 450px;
+  border-radius: 0px 50px 0px 50px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#cardimg7:hover{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+#mainDetalles{
+  
+min-height: 59vh;
 }
 
 .container15 {
@@ -355,6 +372,7 @@ width: 390px;
   width: 100%;
   height: 40%;
 }
+.spanDeDetalles{font-weight: 600;}
 
 .cuadrado {
   width: 100%;
