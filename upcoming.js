@@ -52,7 +52,7 @@ arrayMapeadoDeEventos.forEach(impressCheck);
 
 let search = document.getElementById("buscando");
 let textFilter = "";
-search.addEventListener("change", (evento) => {
+search.addEventListener("keyup", (evento) => {
   textFilter = evento.target.value;
 
   filtrado();
