@@ -24,9 +24,7 @@ for (i = 0; i < eventoElegido.length; i++) {
   <p class="card-text"> <span class="spanDeDetalles"> Date:  </span> ${eventoElegido[i].date}</p>
   <p class="card-text"><span class="spanDeDetalles">  Place:  </span> ${eventoElegido[i].place}</p>
   <p class="card-text"> <span class="spanDeDetalles"> Capacity:  </span> ${eventoElegido[i].capacity}</p>
-  <p class="card-text"> <span class="spanDeDetalles"> Place:  </span> ${eventoElegido[i].place}</p>
-  <p class="card-text"> <span class="spanDeDetalles"> Capacity:  </span> ${eventoElegido[i].capacity}</p>
-  <p class="card-text"> <span class="spanDeDetalles"> Category: </span> ${eventoElegido[i].category}</p>
+    <p class="card-text"> <span class="spanDeDetalles"> Category: </span> ${eventoElegido[i].category}</p>
 
 </div>  </span>
 </div> `;
