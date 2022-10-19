@@ -78,7 +78,7 @@ function filtrado() {
   );
   if (arrayCategoriasChequeadas.length === 0) {
    if ( eventTextFiltered.length === 0){
-    container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> No se encontró ningún evento... </p> </div> ` 
+    container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not event found... </p> </div> ` 
 
 
    } else {container.innerHTML = " ";
@@ -91,7 +91,7 @@ function filtrado() {
     );
     container.innerHTML = " ";
     if(eventosFiltradosPorNombreYCategoria.length === 0){
-      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> No se encontró ningún evento... </p> </div> ` 
+      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not event found... </p> </div> ` 
     }
     else{imprimir(eventosFiltradosPorNombreYCategoria);}
   }
