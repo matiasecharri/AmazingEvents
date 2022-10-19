@@ -46,16 +46,11 @@ arrayMapeadoDeEventos.forEach(impressCheck);
 // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
-
+let textFilter = " ";
 search.addEventListener("change", (evento) => {
-  let textFilter = evento.target.value;
+  textFilter = evento.target.value;
 
-  let eventTextFiltered = events.filter((evento) =>
-    evento.name.toLowerCase().includes(textFilter.toLowerCase())
-  );
-  container.innerHTML = " ";
-
-  imprimir(eventTextFiltered);
+  filtrado();
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -72,66 +67,37 @@ checkbox.addEventListener("change", (evento) => {
     arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
   }
 
-  let eventosCategoriaChequeada = events.filter(function (evento) {
-    return arrayCategoriasChequeadas.includes(evento.category);
-  });
-  container.innerHTML = " ";
-  if (arrayCategoriasChequeadas.length !== 0) {
-    imprimir(eventosCategoriaChequeada);
-  } else {
-    imprimir(events);
-  }
+  filtrado();
 });
 
 //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
 
+function filtrado() {
+  let eventTextFiltered = events.filter((evento) =>
+    evento.name.toLowerCase().includes(textFilter.toLowerCase())
+  );
+  if (arrayCategoriasChequeadas.length === 0) {
+    container.innerHTML = " ";
 
-// var parameter = "" // variable que va a contener el valor del select
-// var data = [] // array que va a contener los eventos a imprimir
-// var valueOfInput = "" // variable que va a contener el valor del input
+    imprimir(eventTextFiltered);
+  } else {
+    let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
+      (evento) => arrayCategoriasChequeadas.includes(evento.category)
+    );
+    container.innerHTML = " ";
+    if(eventosFiltradosPorNombreYCategoria.length === 0){
+      container.innerHTML = `<h2> No se encontró ningún evento... </h2> ` 
+    }
+    else{imprimir(eventosFiltradosPorNombreYCategoria);}
+  }
+}
 
-// function toSelect (event) { // funcion que captura el valor proveniente del select e imprime el array de los eventos correspondientes
-//     parameter = event.target.value // defino el valor del evento
-//     document.querySelector("#events").innerHTML = "" // limpio la impresion de HTML
-//     if (parameter == "" || parameter == "select category" || parameter == undefined) {
-//         if (valueOfInput == "" || valueOfInput == undefined) {
-//             data = sortedEvents
-//         } else {
-//             data = sortedEvents.filter(event =>
-//                 event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
-//                 event.name.toLowerCase().includes(valueOfInput.toLowerCase())
-//             )
-//         }
-//     } else {
-//         if (valueOfInput == "" || valueOfInput == undefined) {
-//             data = sortedEvents.filter(event => event.category == parameter)
-//         } else {
-//             data = sortedEvents.filter(event =>
-//                 event.category == parameter &&
-//                 (event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
-//                 event.name.toLowerCase().includes(valueOfInput.toLowerCase()))
-//             )
-//         }
-//     }
-//     toPrint(data) // imprimimos en html
-//     return parameter
-// }
 
-// function toSearch (event) { // funcion que captura el valor proveniente del input e imprime el array de los eventos correspondientes
-//     valueOfInput = event.target.value // defino el valor del evento
-//     document.querySelector("#events").innerHTML = "" // limpio la impresion de HTML
-//     if (parameter == "" || parameter == undefined || parameter == "select category") {
-//         data = sortedEvents.filter(event =>
-//             event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
-//             event.name.toLowerCase().includes(valueOfInput.toLowerCase())
-//         )
-//     } else {
-//         data = sortedEvents.filter(event =>
-//             event.category.toLowerCase() === parameter.toLowerCase() &&
-//             (event.category.toLowerCase().includes(valueOfInput.toLowerCase()) ||
-//             event.name.toLowerCase().includes(valueOfInput.toLowerCase()))
-//         )
-//     }
-//     toPrint(data) // imprimimos en html
-//     return valueOfInput
+
+// else {
+//   let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
+//     (evento) => arrayCategoriasChequeadas.includes(evento.category)
+//   );
+//   container.innerHTML = " ";
+//   imprimir(eventosFiltradosPorNombreYCategoria);
 // }

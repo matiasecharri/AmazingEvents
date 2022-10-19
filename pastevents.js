@@ -24,6 +24,8 @@ function imprimir(arreglo3) {
 imprimir(events);
 
 //HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
+let pastEvents = events.filter((evento) => evento.date < currentDate);
+console.log(pastEvents);
 
 let checkbox = document.getElementById("checkboxbar"); //Traje el contenedor padre, para que los checkbox queden dentro de el.
 let arrayMapeadoDeEventos = new Set( //Creo una nueva variable la cual es igual a un array, usando MAP me saco de encima la información que no me sirve y como la tengo duplicada uso new Set
@@ -47,16 +49,11 @@ arrayMapeadoDeEventos.forEach(impressCheck);
 // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
-
+let textFilter = " ";
 search.addEventListener("change", (evento) => {
-  let textFilter = evento.target.value;
+  textFilter = evento.target.value;
 
-  let eventTextFiltered = events.filter((evento) =>
-    evento.name.toLowerCase().includes(textFilter.toLowerCase())
-  );
-  container.innerHTML = " ";
-
-  imprimir(eventTextFiltered);
+  filtrado();
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -73,13 +70,27 @@ checkbox.addEventListener("change", (evento) => {
     arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
   }
 
-  let eventosCategoriaChequeada = events.filter(function (evento) {
-    return arrayCategoriasChequeadas.includes(evento.category);
-  });
-  container.innerHTML = " ";
-  if (arrayCategoriasChequeadas.length !== 0) {
-    imprimir(eventosCategoriaChequeada);
-  } else {
-    imprimir(events);
-  }
+  filtrado();
 });
+
+//  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
+
+function filtrado() {
+  let eventTextFiltered = pastEvents.filter((evento) =>
+    evento.name.toLowerCase().includes(textFilter.toLowerCase())
+  );
+  if (arrayCategoriasChequeadas.length === 0) {
+    container.innerHTML = " ";
+
+    imprimir(eventTextFiltered);
+  } else {
+    let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
+      (evento) => arrayCategoriasChequeadas.includes(evento.category)
+    );
+    container.innerHTML = " ";
+    if(eventosFiltradosPorNombreYCategoria.length === 0){
+      container.innerHTML = `<h2> No se encontró ningún evento... </h2> ` 
+    }
+    else{imprimir(eventosFiltradosPorNombreYCategoria);}
+  }
+}

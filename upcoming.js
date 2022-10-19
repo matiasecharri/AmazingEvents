@@ -1,10 +1,11 @@
 //// APARECER CARTAS DE UPCOMING //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let container = document.getElementById("cartaid");
-function imprimir(arreglo2){
-for (i = 0; i < arreglo2.length; i++) {arreglo2
-  if (arreglo2[i].date > currentDate) {
-    container.innerHTML += ` 
+function imprimir(arreglo2) {
+  for (i = 0; i < arreglo2.length; i++) {
+    arreglo2;
+    if (arreglo2[i].date > currentDate) {
+      container.innerHTML += ` 
   <div class="card">
   <img src="${arreglo2[i].image}" class="card-img-top" alt="${arreglo2[i].name}">
   <div class="card-body-d-flex align-items-around">
@@ -17,9 +18,13 @@ for (i = 0; i < arreglo2.length; i++) {arreglo2
     <a href="details.html?evento=${arreglo2[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
-  </div>`;}
-}}
-imprimir(events)
+  </div>`;
+    }
+  }
+}
+imprimir(events);
+
+let upcoEvents = events.filter((evento) => evento.date > currentDate);
 
 //HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,19 +47,15 @@ function impressCheck(stringQueSepareArriba) {
 
 arrayMapeadoDeEventos.forEach(impressCheck);
 
+/// --------------------------------------------------------------------------------------------------------------------------------
 // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
-
+let textFilter = " ";
 search.addEventListener("change", (evento) => {
-  let textFilter = evento.target.value;
+  textFilter = evento.target.value;
 
-  let eventTextFiltered = events.filter((evento) =>
-    evento.name.toLowerCase().includes(textFilter.toLowerCase())
-  );
-  container.innerHTML = " ";
-
-  imprimir(eventTextFiltered)
+  filtrado();
 });
 
 //  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
@@ -71,13 +72,27 @@ checkbox.addEventListener("change", (evento) => {
     arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
   }
 
-  let eventosCategoriaChequeada = events.filter(function (evento) {
-    return arrayCategoriasChequeadas.includes(evento.category);
-  });
-  container.innerHTML = " ";
-  if (arrayCategoriasChequeadas.length !== 0) {
-    imprimir(eventosCategoriaChequeada)
-  } else {
-   imprimir(events)
-  }
+  filtrado();
 });
+
+//  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
+
+function filtrado() {
+  let eventTextFiltered = upcoEvents.filter((evento) =>
+    evento.name.toLowerCase().includes(textFilter.toLowerCase())
+  );
+  if (arrayCategoriasChequeadas.length === 0) {
+    container.innerHTML = " ";
+
+    imprimir(eventTextFiltered);
+  } else {
+    let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
+      (evento) => arrayCategoriasChequeadas.includes(evento.category)
+    );
+    container.innerHTML = " ";
+    if(eventosFiltradosPorNombreYCategoria.length === 0){
+      container.innerHTML = `<h2> No se encontró ningún evento... </h2> ` 
+    }
+    else{imprimir(eventosFiltradosPorNombreYCategoria);}
+  }
+}
