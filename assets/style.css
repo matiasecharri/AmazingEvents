@@ -58,15 +58,11 @@ img:hover {
 }
 
 .span {
- 
   font-weight: bold;
-  
 }
 /* From uiverse.io by @harman-kanda */
 /* From cssbuttons.io by @harmankanda.github.io/New */
 
-
-   
 .containertitle {
   background-color: #f4d03f;
   background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
@@ -79,7 +75,7 @@ img:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0px 0px  150px 150px;
+  border-radius: 0px 0px 150px 150px;
 }
 
 h1 {
@@ -112,17 +108,16 @@ main {
   background-color: rgb(255, 255, 255);
   gap: 45px;
 
-padding-bottom: 45px;
+  padding-bottom: 45px;
 
-padding-bottom: 20px;
-
+  padding-bottom: 20px;
 }
 
-.mainsincheck{ min-height: 59vh;
-display: flex;
-flex-direction: column;}
-
-
+.mainsincheck {
+  min-height: 59vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .btn {
   color: rgb(255, 255, 255);
@@ -134,7 +129,6 @@ flex-direction: column;}
   color: rgb(255, 255, 255);
   background-color: #8bc6ec;
   background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
-;
   height: 35px;
 }
 
@@ -237,16 +231,15 @@ label {
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
- 
+
   margin: 5px;
-  
-  
- 
 }
 
-.detailsTitle{color: #d41062;
+.detailsTitle {
+  color: #d41062;
   font-weight: 450;
-font-size: 40px;}
+  font-size: 40px;
+}
 
 #cardimg7 {
   height: 290px;
@@ -255,14 +248,13 @@ font-size: 40px;}
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-#cardimg7:hover{
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-
+#cardimg7:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-#mainDetalles{
-  
-min-height: 59vh;
+#mainDetalles {
+  min-height: 59vh;
 }
 
 .container15 {
@@ -291,7 +283,6 @@ min-height: 59vh;
 }
 
 .table {
-
   background-color: #2c2e2d;
 
   background-color: #2c2e2e;
@@ -299,10 +290,12 @@ min-height: 59vh;
   margin-right: 8px;
   margin-top: 20px;
   color: #ffffff;
-    
+
   border-radius: 20px;
   width: 70%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 @media (max-width: 468px) {
@@ -310,47 +303,46 @@ min-height: 59vh;
     font-size: 550%;
   }
 
-  .mainsincheck{ min-height: 65vh;
+  .mainsincheck {
+    min-height: 65vh;
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+  }
 
-  .textocontacto{
+  .textocontacto {
     font-size: 10px;
+  }
 }
-
-
-}
-
-
-
 
 @media (max-width: 565px) {
- 
-main{flex-direction: column-reverse !important;
-align-items: center;
-justify-content: center;}
+  main {
+    flex-direction: column-reverse !important;
+    align-items: center;
+    justify-content: center;
+  }
 
-.cardetails{
-  font-size: 15px;
-  margin-left: 20px;
-  color: #ffffff;
-  
+  .cardetails {
+    font-size: 15px;
+    margin-left: 20px;
+    color: #ffffff;
+  }
+
+  .cardetails h5 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+
+  #cardimg7 {
+    border-radius: 0px;
+    width: 1px;
+    height: 1px;
+  }
+
+  .blackMovil {
+    background-color: #222222;
+  }
 }
-
-.cardetails h5{text-align: center;
-font-size: 30px;
-margin-bottom: 24px;}
-
-#cardimg7{border-radius: 0px;
-width: 1px;
-height: 1px;}
-
-
-.blackMovil{background-color: #222222;}
-}
-
-
-
 
 @media (max-width: 750px) {
   .upcoming {
@@ -365,14 +357,12 @@ height: 1px;}
   .checks5 {
     display: none;
   }
-  .container15{
-display: flex;
-flex-wrap: wrap;
-height: 280px;
-width: 390px;
-}
-
-
+  .container15 {
+    display: flex;
+    flex-wrap: wrap;
+    height: 280px;
+    width: 390px;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -384,8 +374,8 @@ width: 390px;
 .card {
   width: 290px;
   height: 430px;
-border-radius: 0px 0px 15px 15px;
-transition-duration: 700ms !important;
+  border-radius: 0px 0px 15px 15px;
+  transition-duration: 700ms !important;
   background-color: rgb(23, 24, 24);
   color: white;
   margin-top: 15px;
@@ -393,7 +383,6 @@ transition-duration: 700ms !important;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  
 }
 .card:hover {
   box-shadow: rgb(9, 16, 24) 0px 20px 30px -10px;
@@ -407,7 +396,9 @@ transition-duration: 700ms !important;
   width: 100%;
   height: 40%;
 }
-.spanDeDetalles{font-weight: 600;}
+.spanDeDetalles {
+  font-weight: 600;
+}
 
 .cuadrado {
   width: 100%;
@@ -428,10 +419,25 @@ transition-duration: 700ms !important;
 .card-title {
   margin-left: 15px;
   margin-top: 10px;
-  
- 
 }
 
+.minitext {
+  color: #e2176b;
+}
 
-.minitext{color: #e2176b;
+.noEvento {
+  width: 178px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.noEvented {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noResultadoTexto {
+  font-style: italic;
 }

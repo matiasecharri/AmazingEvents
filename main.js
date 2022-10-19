@@ -46,7 +46,7 @@ arrayMapeadoDeEventos.forEach(impressCheck);
 // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
 
 let search = document.getElementById("buscando");
-let textFilter = " ";
+let textFilter = "";
 search.addEventListener("change", (evento) => {
   textFilter = evento.target.value;
 
@@ -86,18 +86,10 @@ function filtrado() {
     );
     container.innerHTML = " ";
     if(eventosFiltradosPorNombreYCategoria.length === 0){
-      container.innerHTML = `<h2> No se encontró ningún evento... </h2> ` 
+      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> No se encontró ningún evento... </p> </div> ` 
     }
     else{imprimir(eventosFiltradosPorNombreYCategoria);}
   }
 }
 
 
-
-// else {
-//   let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
-//     (evento) => arrayCategoriasChequeadas.includes(evento.category)
-//   );
-//   container.innerHTML = " ";
-//   imprimir(eventosFiltradosPorNombreYCategoria);
-// }
