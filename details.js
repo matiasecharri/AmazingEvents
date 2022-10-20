@@ -1,13 +1,17 @@
 let contenedorDetalles = document.getElementById("mainDetalles");
 
-let idGuardado = Number(location.search.slice(8));
-console.log(idGuardado)
 
-let eventoElegido = events.filter((evento) => evento._id === idGuardado);
+// Locatin es un objeto que contiene todas las propiedades de la página, al buscar el .search lo que estoy haciendo sería entrar especificamente en esa propiedad.
+let idGuardado = Number(location.search.slice(8)); //Este search no tiene nada que ver con mi search, location.search es una propiedad para encontrar un elemento.
+
+
+
+
+let eventoElegido = events.filter((i) => i._id === idGuardado); // Hago una variable que sea = a eventos filtrados i y hago que evnetos filtrados i sea igual al ID que guarde.
 console.log(eventoElegido)
 
 
-for (i = 0; i < eventoElegido.length; i++) {
+for (i = 0; i < eventoElegido.length; i++) {                           //Bucle de evento elegido LA CLASICA PA
   contenedorDetalles.innerHTML = `
 <img src="${eventoElegido[i].image}" id="cardimg7" alt="${eventoElegido[i].name}">
 

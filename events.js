@@ -27,7 +27,7 @@
     },
     {
       _id: 3,
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo5.jpg",
+      "image":"https://s3-us-west-2.amazonaws.com/montana-surveytoolimages/general/full-size/635905468279528880.jpg",
       "name":"Jurassic Park",
       "date":"2021-11-02",
       "description":"Let's go meet the biggest dinosaurs in the paleontology museum.",
@@ -39,7 +39,7 @@
     },
     {
       _id: 4,
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo1.jpg",
+      "image":"https://wallpaperaccess.com/full/6984581.jpg",
       "name":"Parisian Museum",
       "date":"2022-11-02",
       "description":"A unique tour in the city of lights, get to know one of the most iconic places.",
@@ -170,6 +170,7 @@
       "price":250
     },
     
+ 
 
 
   ]
