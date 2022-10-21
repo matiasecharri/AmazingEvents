@@ -105,7 +105,7 @@ main {
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  min-height: 55vh;
+  min-height: 47.9vh;
   background-color: rgb(255, 255, 255);
   gap: 45px;
 
@@ -242,6 +242,88 @@ label {
   font-size: 12px;
 }
 
+
+
+
+
+
+/* /////////////////////////////////////////////////////////////////////////animated */
+/* From uiverse.io by @G4b413l */
+.newtons-cradle {
+  --uib-size: 50px;
+  --uib-speed: 1.2s;
+  --uib-color: #2d2d31;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--uib-size);
+  height: var(--uib-size);
+ }
+ 
+ .newtons-cradle__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+  transform-origin: center top;
+ }
+ 
+ .newtons-cradle__dot::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+ }
+ 
+ .newtons-cradle__dot:first-child {
+  animation: swing var(--uib-speed) linear infinite;
+ }
+ 
+ .newtons-cradle__dot:last-child {
+  animation: swing2 var(--uib-speed) linear infinite;
+ }
+ 
+ @keyframes swing {
+  0% {
+   transform: rotate(0deg);
+   animation-timing-function: ease-out;
+  }
+ 
+  25% {
+   transform: rotate(70deg);
+   animation-timing-function: ease-in;
+  }
+ 
+  50% {
+   transform: rotate(0deg);
+   animation-timing-function: linear;
+  }
+ }
+ 
+ @keyframes swing2 {
+  0% {
+   transform: rotate(0deg);
+   animation-timing-function: linear;
+  }
+ 
+  50% {
+   transform: rotate(0deg);
+   animation-timing-function: ease-out;
+  }
+ 
+  75% {
+   transform: rotate(-70deg);
+   animation-timing-function: ease-in;
+  }
+ }
+ 
+/* /////////////////////////////////////////////////////////////////////////animated */
+
+
 .bar11 {
   margin-right: 0px;
   height: 0vh;
@@ -293,6 +375,10 @@ label {
   margin-right: 10px;
   margin-left: 10px;
 }
+
+
+
+
 
 .achedos {
   color: #e2176b;
@@ -367,25 +453,43 @@ label {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 760px) {
   .upcoming {
     font-size: 40px;
   }
   .contact1 {
     font-size: 40px;
   }
+
+  .container15 .right{
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container15{
+    width: 85%;
+   
+    
+  }
+
+  .textocontacto{
+    font-size: 15px;
+  }
+
+
+
 }
+
+
+
 
 @media (max-width: 1025px) {
   .checks5 {
     display: none;
   }
-  .container15 {
-    display: flex;
-    flex-wrap: wrap;
-    height: 280px;
-    width: 390px;
-  }
+  
 }
 
 @media (max-width: 1350px) {
@@ -569,4 +673,10 @@ label {
 
 .noResultadoTexto {
   font-style: italic;
+  color: #d40b5ff5;
+  font-weight: 600;
 }
+
+
+.xd{color: #222222;
+  font-weight: 500;}

@@ -80,7 +80,12 @@ function filtrado() {
   );
   if (arrayCategoriasChequeadas.length === 0) { //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
    if ( eventTextFiltered.length === 0){ //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
-    container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not events found... </p> </div> ` 
+    container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
 
 
    } else {container.innerHTML = " ";
@@ -93,7 +98,13 @@ function filtrado() {
     );
     container.innerHTML = " "; //vacio el container e imprimo los que haya filtrado
     if(eventosFiltradosPorNombreYCategoria.length === 0){ //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
-      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not events found... </p> </div> ` 
+      container.innerHTML = `<div class = "noEvented"> 
+      <div class="newtons-cradle">
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
     }
     else{imprimir(eventosFiltradosPorNombreYCategoria);} //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
   }

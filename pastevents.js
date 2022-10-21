@@ -81,7 +81,12 @@ function filtrado() {
   );
   if (arrayCategoriasChequeadas.length === 0) {
     if ( eventTextFiltered.length === 0){
-      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not events found.... </p> </div> ` 
+      container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
   
   
      } else {container.innerHTML = " ";
@@ -93,7 +98,12 @@ function filtrado() {
     );
     container.innerHTML = " ";
     if(eventosFiltradosPorNombreYCategoria.length === 0){
-      container.innerHTML = `<div class = "noEvented"> <img src="./assets/images/favpng_business-scrum-apache-hadoop.png" alt="noEvento" class="noEvento">  <p class="noResultadoTexto"> Not events found... </p> </div> ` 
+      container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      <div class="newtons-cradle__dot"></div>
+      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
     }
     else{imprimir(eventosFiltradosPorNombreYCategoria);}
   }
