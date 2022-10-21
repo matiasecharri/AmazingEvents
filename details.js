@@ -36,3 +36,4 @@ for (i = 0; i < eventoElegido.length; i++) {                           //Bucle d
 
 
 
+
