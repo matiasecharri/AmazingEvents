@@ -1,7 +1,5 @@
 //-------------------------------------------------------HACER APARECER CARTAS------------------------------------------------------------------------------------------------
 
-
-
 let container = document.getElementById("cartaid");
 function imprimir(arreglo) {
   for (i = 0; i < arreglo.length; i++) {
@@ -25,10 +23,10 @@ imprimir(events);
 
 //----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
-let checkbox = document.getElementById("checkboxbar"); 
-let arrayMapeadoDeEventos = new Set( 
+let checkbox = document.getElementById("checkboxbar");
+let arrayMapeadoDeEventos = new Set(
   events.map(function (i) {
-    return i.category; 
+    return i.category;
   })
 );
 
@@ -75,40 +73,60 @@ checkbox.addEventListener("change", (evento) => {
 //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
 
 function filtrado() {
-  let eventTextFiltered = events.filter((evento) =>
-    evento.name.toLowerCase().includes(textFilter.toLowerCase()) //eventTextFiltered es un array de los eventos que el usuario escribio.
+  let eventTextFiltered = events.filter(
+    (evento) => evento.name.toLowerCase().includes(textFilter.toLowerCase()) //eventTextFiltered es un array de los eventos que el usuario escribio.
   );
-  if (arrayCategoriasChequeadas.length === 0) { //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
-   if ( eventTextFiltered.length === 0){ //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
-    container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+  if (arrayCategoriasChequeadas.length === 0) {
+    //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
+    if (eventTextFiltered.length === 0) {
+      //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
+      container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
     <div class="newtons-cradle__dot"></div>
     <div class="newtons-cradle__dot"></div>
     <div class="newtons-cradle__dot"></div>
     <div class="newtons-cradle__dot"></div>
-    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
+    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
+    } else {
+      container.innerHTML = " ";
 
-
-   } else {container.innerHTML = " ";
-
-   imprimir(eventTextFiltered);} //Si event text filter no es 0 que imprima lo que filtro.
-  }
-   else {
+      imprimir(eventTextFiltered);
+    } //Si event text filter no es 0 que imprima lo que filtro.
+  } else {
     let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
       (evento) => arrayCategoriasChequeadas.includes(evento.category) //Si hay alguna categoria chequeada va a hacer un array de los checkbox y el buscador
     );
     container.innerHTML = " "; //vacio el container e imprimo los que haya filtrado
-    if(eventosFiltradosPorNombreYCategoria.length === 0){ //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
+    if (eventosFiltradosPorNombreYCategoria.length === 0) {
+      //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
       container.innerHTML = `<div class = "noEvented"> 
       <div class="newtons-cradle">
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
-      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
-    }
-    else{imprimir(eventosFiltradosPorNombreYCategoria);} //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
+      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
+    } else {
+      imprimir(eventosFiltradosPorNombreYCategoria);
+    } //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
   }
 }
 
 
+
+function boliche(nombre, edad, vip) {
+  if (edad >= 18) {
+    if (vip) {
+      console.log(nombre + " es mayor de edad y tiene VIP.");
+    } else if (edad >= 18) {
+      console.log(nombre + " puede ingresar al boliche porque tiene " + edad + " años, aunque no tiene VIP.");
+    }
+  } else {
+    console.log(nombre + " no puede ingresar porque tiene " + edad + " años");
+  }
+}
+
+boliche("Santi", 19, false);
+boliche("Matias", 15, true);
+boliche("Ezequiel", 25, true);
+boliche("Hernan", 30, false);
 
