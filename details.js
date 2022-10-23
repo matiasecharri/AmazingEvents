@@ -1,18 +1,19 @@
 let contenedorDetalles = document.getElementById("mainDetalles");
 
-
 // Locatin es un objeto que contiene todas las propiedades de la página, al buscar el .search lo que estoy haciendo sería entrar especificamente en esa propiedad.
-let idGuardado = Number(location.search.slice(8)); //Este search no tiene nada que ver con mi search, location.search es una propiedad para encontrar un elemento.
+let idGuardado = location.search.slice(8); //Este search no tiene nada que ver con mi search, location.search es una propiedad para encontrar un elemento.
+console.log(idGuardado);
 
+async function dataPorApi() {
+  let dataApi = await fetch("https://mind-hub.up.railway.app/amazing");
+  dataApi = await dataApi.json();
 
+  let events = dataApi.events;
 
-
-let eventoElegido = events.filter((i) => i._id === idGuardado); // Hago una variable que sea = a eventos filtrados i y hago que evnetos filtrados i sea igual al ID que guarde.
-console.log(eventoElegido)
-
-
-for (i = 0; i < eventoElegido.length; i++) {                           //Bucle de evento elegido LA CLASICA PA
-  contenedorDetalles.innerHTML = `
+  let eventoElegido = events.filter((i) => i.id === idGuardado); // Hago una variable que sea = a eventos filtrados i y hago que evnetos filtrados i sea igual al ID que guarde.
+  for (i = 0; i < eventoElegido.length; i++) {
+    //Bucle de evento elegido LA CLASICA PA
+    contenedorDetalles.innerHTML = `
 <img src="${eventoElegido[i].image}" id="cardimg7" alt="${eventoElegido[i].name}">
 
 </div>
@@ -32,8 +33,7 @@ for (i = 0; i < eventoElegido.length; i++) {                           //Bucle d
 
 </div>  </span>
 </div> `;
+  }
 }
 
-
-
-
+dataPorApi()

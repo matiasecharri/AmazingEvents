@@ -1,10 +1,10 @@
-//// APARECER CARTAS DE UPCOMING //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------HACER APARECER CARTAS------------------------------------------------------------------------------------------------
 
 let container = document.getElementById("cartaid");
-function imprimir(arreglo2) {
+function imprimir(arreglo2, date) {
   for (i = 0; i < arreglo2.length; i++) {
     arreglo2;
-    if (arreglo2[i].date > currentDate) {
+    if (arreglo2[i].date > date) {
       container.innerHTML += ` 
   <div class="card">
   <img src="${arreglo2[i].image}" class="card-img-top" alt="${arreglo2[i].name}">
@@ -15,26 +15,16 @@ function imprimir(arreglo2) {
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${arreglo2[i]._id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo2[i].id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
     }
   }
 }
-imprimir(events);
+//----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
-let upcoEvents = events.filter((evento) => evento.date > currentDate);
-
-//HACER APARECER CHECKBOX --------------------------------------------------------///////////////////////////////////////////////////////////////////////////////////////////////
-
-let checkbox = document.getElementById("checkboxbar"); //Traje el contenedor padre, para que los checkbox queden dentro de el.
-let arrayMapeadoDeEventos = new Set( //Creo una nueva variable la cual es igual a un array, usando MAP me saco de encima la información que no me sirve y como la tengo duplicada uso new Set
-  events.map(function (i) {
-    return i.category; //Retorno el i.category que es lo que me interesa sacar del MAP.
-  })
-);
-
+let checkbox = document.getElementById("checkboxbar");
 function impressCheck(stringQueSepareArriba) {
   checkbox.innerHTML += `<div class="form-check">
 <input class="form-check-input" type="checkbox" value="${stringQueSepareArriba}" id="flexCheckDefault">
@@ -45,20 +35,42 @@ function impressCheck(stringQueSepareArriba) {
 `;
 }
 
+//----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
+async function dataPorApi (){
+
+  let dataApi = await fetch ("https://mind-hub.up.railway.app/amazing")
+   dataApi = await dataApi.json()
+  console.log(dataApi)
+let events = dataApi.events
+let date = dataApi.date
+let upcomingEvents = events.filter(function(i){
+  return i.date > date
+})
+
+//////////////////Imprimir cards
+imprimir(events, date);
+
+
+//////////////////Imprimir checkbox
+let arrayMapeadoDeEventos = new Set(
+  events.map(function (i) {
+    return i.category;
+  })
+);
 arrayMapeadoDeEventos.forEach(impressCheck);
 
-/// --------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------
 // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
-
-let search = document.getElementById("buscando");
 let textFilter = "";
+let search = document.getElementById("buscando");
+
 search.addEventListener("keyup", (evento) => {
   textFilter = evento.target.value;
 
   filtrado();
 });
 
-//  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
+//  ------------------------------------------- EVENTOS PARA FILTRAR POR CHECKBOX -------------------------------------------------------------------
 
 let arrayCategoriasChequeadas = [];
 
@@ -78,38 +90,45 @@ checkbox.addEventListener("change", (evento) => {
 //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
 
 function filtrado() {
-  let eventTextFiltered = upcoEvents.filter((evento) =>
-    evento.name.toLowerCase().includes(textFilter.toLowerCase())
+  let eventTextFiltered = upcomingEvents.filter(
+    (evento) => evento.name.toLowerCase().includes(textFilter.toLowerCase()) //eventTextFiltered es un array de los eventos que el usuario escribio.
   );
   if (arrayCategoriasChequeadas.length === 0) {
-    if ( eventTextFiltered.length === 0){
-      container.innerHTML =`<div class = "noEvented"> <div class="newtons-cradle">
-      <div class="newtons-cradle__dot"></div>
-      <div class="newtons-cradle__dot"></div>
-      <div class="newtons-cradle__dot"></div>
-      <div class="newtons-cradle__dot"></div>
-      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
-  
-  
-     } else {container.innerHTML = " ";
-  
-     imprimir(eventTextFiltered);}
+    //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
+    if (eventTextFiltered.length === 0) {
+      //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
+      container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
+    } else {
+      container.innerHTML = " ";
+
+      imprimir(eventTextFiltered, date);
+    } //Si event text filter no es 0 que imprima lo que filtro.
   } else {
     let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
-      (evento) => arrayCategoriasChequeadas.includes(evento.category)
+      (evento) => arrayCategoriasChequeadas.includes(evento.category) //Si hay alguna categoria chequeada va a hacer un array de los checkbox y el buscador
     );
-    container.innerHTML = " ";
-    if(eventosFiltradosPorNombreYCategoria.length === 0){
-      container.innerHTML = `
-      <div class = "noEvented">
-      
-       <div class="newtons-cradle">
+    container.innerHTML = " "; //vacio el container e imprimo los que haya filtrado
+    if (eventosFiltradosPorNombreYCategoria.length === 0) {
+      //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
+      container.innerHTML = `<div class = "noEvented"> 
+      <div class="newtons-cradle">
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
-      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  ` 
-    }
-    else{imprimir(eventosFiltradosPorNombreYCategoria);}
+      </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
+    } else {
+      imprimir(eventosFiltradosPorNombreYCategoria, date);
+    } //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
   }
 }
+
+
+}
+
+dataPorApi()

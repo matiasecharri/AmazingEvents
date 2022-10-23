@@ -1,10 +1,9 @@
 //-------------------------------------------------------HACER APARECER CARTAS------------------------------------------------------------------------------------------------
-
 let container = document.getElementById("cartaid");
 function imprimir(arreglo) {
   for (i = 0; i < arreglo.length; i++) {
     container.innerHTML += ` 
-  <div class="card" data-aos="zoom-out-right">
+  <div class="card">
   <img src="${arreglo[i].image}" class="card-img-top" alt="${arreglo[i].name}">
   <div class="card-body-d-flex align-items-around">
     <h5 class="card-title">${arreglo[i].name}
@@ -13,23 +12,15 @@ function imprimir(arreglo) {
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${arreglo[i]._id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo[i].id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
   }
 }
-imprimir(events);
-
 //----------------------------------------------------------HACER APARECER CHECKBOX-------------------------------------------------------------------------------------------
 
 let checkbox = document.getElementById("checkboxbar");
-let arrayMapeadoDeEventos = new Set(
-  events.map(function (i) {
-    return i.category;
-  })
-);
-
 function impressCheck(stringQueSepareArriba) {
   checkbox.innerHTML += `<div class="form-check">
 <input class="form-check-input" type="checkbox" value="${stringQueSepareArriba}" id="flexCheckDefault">
@@ -40,6 +31,25 @@ function impressCheck(stringQueSepareArriba) {
 `;
 }
 
+//----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
+async function dataPorApi (){
+
+  let dataApi = await fetch ("https://mind-hub.up.railway.app/amazing")
+   dataApi = await dataApi.json()
+  console.log(dataApi)
+let events = dataApi.events
+
+
+//////////////////Imprimir cards
+imprimir(events);
+
+
+//////////////////Imprimir checkbox
+let arrayMapeadoDeEventos = new Set(
+  events.map(function (i) {
+    return i.category;
+  })
+);
 arrayMapeadoDeEventos.forEach(impressCheck);
 
 // --------------------------------------------------------------------------------------------------------------------------------
@@ -53,7 +63,7 @@ search.addEventListener("keyup", (evento) => {
   filtrado();
 });
 
-//  ------------------------------------------- EVENTOS CHECKBOX -------------------------------------------------------------------
+//  ------------------------------------------- EVENTOS PARA FILTRAR POR CHECKBOX -------------------------------------------------------------------
 
 let arrayCategoriasChequeadas = [];
 
@@ -112,21 +122,6 @@ function filtrado() {
 }
 
 
-
-function boliche(nombre, edad, vip) {
-  if (edad >= 18) {
-    if (vip) {
-      console.log(nombre + " es mayor de edad y tiene VIP.");
-    } else if (edad >= 18) {
-      console.log(nombre + " puede ingresar al boliche porque tiene " + edad + " años, aunque no tiene VIP.");
-    }
-  } else {
-    console.log(nombre + " no puede ingresar porque tiene " + edad + " años");
-  }
 }
 
-boliche("Santi", 19, false);
-boliche("Matias", 15, true);
-boliche("Ezequiel", 25, true);
-boliche("Hernan", 30, false);
-
+dataPorApi()
