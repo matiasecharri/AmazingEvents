@@ -34,7 +34,7 @@ function impressCheck(stringQueSepareArriba) {
 //----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
 async function dataPorApi (){
 
-  let dataApi = await fetch ("https://mind-hub.up.railway.app/amazing")
+  let dataApi = await fetch ("https://amazing-events.herokuapp.com/api/events")
    dataApi = await dataApi.json()
   console.log(dataApi)
 let events = dataApi.events

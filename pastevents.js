@@ -15,7 +15,7 @@ function imprimir(arreglo2, date) {
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${arreglo2[i].id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo2[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
@@ -38,17 +38,17 @@ function impressCheck(stringQueSepareArriba) {
 //----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
 async function dataPorApi (){
 
-  let dataApi = await fetch ("https://mind-hub.up.railway.app/amazing")
+  let dataApi = await fetch ("https://amazing-events.herokuapp.com/api/events")
    dataApi = await dataApi.json()
   console.log(dataApi)
 let events = dataApi.events
-let date = dataApi.date
+let date = dataApi.currentDate
 let pastEvents = events.filter(function(i){
   return i.date < date
 })
 
 //////////////////Imprimir cards
-imprimir(events, date);
+imprimir(events, currentDate);
 
 
 //////////////////Imprimir checkbox
@@ -106,7 +106,7 @@ function filtrado() {
     } else {
       container.innerHTML = " ";
 
-      imprimir(eventTextFiltered, date);
+      imprimir(eventTextFiltered, currentDate);
     } //Si event text filter no es 0 que imprima lo que filtro.
   } else {
     let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
@@ -123,7 +123,7 @@ function filtrado() {
       <div class="newtons-cradle__dot"></div>
       </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
     } else {
-      imprimir(eventosFiltradosPorNombreYCategoria, date);
+      imprimir(eventosFiltradosPorNombreYCategoria, currentDate);
     } //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
   }
 }
