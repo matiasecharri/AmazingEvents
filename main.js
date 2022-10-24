@@ -12,7 +12,7 @@ function imprimir(arreglo) {
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${arreglo[i].id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo[i]._id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
@@ -32,96 +32,95 @@ function impressCheck(stringQueSepareArriba) {
 }
 
 //----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
-async function dataPorApi (){
+async function dataPorApi() {
+  let dataApi = await fetch("https://amazing-events.herokuapp.com/api/events");
+  dataApi = await dataApi.json();
+  console.log(dataApi);
+  let events = dataApi.events;
 
-  let dataApi = await fetch ("https://amazing-events.herokuapp.com/api/events")
-   dataApi = await dataApi.json()
-  console.log(dataApi)
-let events = dataApi.events
+  //////////////////Imprimir cards
+  imprimir(events);
 
-
-//////////////////Imprimir cards
-imprimir(events);
-
-
-//////////////////Imprimir checkbox
-let arrayMapeadoDeEventos = new Set(
-  events.map(function (i) {
-    return i.category;
-  })
-);
-arrayMapeadoDeEventos.forEach(impressCheck);
-
-// --------------------------------------------------------------------------------------------------------------------------------
-// EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
-let textFilter = "";
-let search = document.getElementById("buscando");
-
-search.addEventListener("keyup", (evento) => {
-  textFilter = evento.target.value;
-
-  filtrado();
-});
-
-//  ------------------------------------------- EVENTOS PARA FILTRAR POR CHECKBOX -------------------------------------------------------------------
-
-let arrayCategoriasChequeadas = [];
-
-checkbox.addEventListener("change", (evento) => {
-  if (evento.target.checked) {
-    arrayCategoriasChequeadas.push(evento.target.value);
-  } else {
-    let posicionDelNoChequeado = arrayCategoriasChequeadas.indexOf(
-      evento.target.value
-    );
-    arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
-  }
-
-  filtrado();
-});
-
-//  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
-
-function filtrado() {
-  let eventTextFiltered = events.filter(
-    (evento) => evento.name.toLowerCase().includes(textFilter.toLowerCase()) //eventTextFiltered es un array de los eventos que el usuario escribio.
+  //////////////////Imprimir checkbox
+  let arrayMapeadoDeEventos = new Set(
+    events.map(function (i) {
+      return i.category;
+    })
   );
-  if (arrayCategoriasChequeadas.length === 0) {
-    //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
-    if (eventTextFiltered.length === 0) {
-      //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
-      container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
-    <div class="newtons-cradle__dot"></div>
-    <div class="newtons-cradle__dot"></div>
-    <div class="newtons-cradle__dot"></div>
-    <div class="newtons-cradle__dot"></div>
-    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
-    } else {
-      container.innerHTML = " ";
+  arrayMapeadoDeEventos.forEach(impressCheck);
 
-      imprimir(eventTextFiltered);
-    } //Si event text filter no es 0 que imprima lo que filtro.
-  } else {
-    let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
-      (evento) => arrayCategoriasChequeadas.includes(evento.category) //Si hay alguna categoria chequeada va a hacer un array de los checkbox y el buscador
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // EVENTOS  PARA QUE SE FILTREN LAS CARDS AL ESCRIBIR-------------------------------------------------------------------
+  let textFilter = "";
+  let search = document.getElementById("buscando");
+
+  search.addEventListener("keyup", (evento) => {
+    textFilter = evento.target.value;
+
+    filtrado();
+  });
+
+  //  ------------------------------------------- EVENTOS PARA FILTRAR POR CHECKBOX -------------------------------------------------------------------
+
+  let arrayCategoriasChequeadas = [];
+
+  checkbox.addEventListener("change", (evento) => {
+    if (evento.target.checked) {
+      arrayCategoriasChequeadas.push(evento.target.value);
+    } else {
+      let posicionDelNoChequeado = arrayCategoriasChequeadas.indexOf(
+        evento.target.value
+      );
+      arrayCategoriasChequeadas.splice(posicionDelNoChequeado, 1);
+    }
+
+    filtrado();
+  });
+
+  //  ------------------------------------------- COMBINACION CHECKBOX Y SEARCH---------------------------------------------------------///
+
+  function filtrado() {
+    let eventTextFiltered = events.filter(
+      (evento) => evento.name.toLowerCase().includes(textFilter.toLowerCase()) //eventTextFiltered es un array de los eventos que el usuario escribio.
     );
-    container.innerHTML = " "; //vacio el container e imprimo los que haya filtrado
-    if (eventosFiltradosPorNombreYCategoria.length === 0) {
-      //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
-      container.innerHTML = `<div class = "noEvented"> 
+    if (arrayCategoriasChequeadas.length === 0) {
+      //Si arrayCategoriasChequeadas  (checkbox) es  0 filtrame por texto
+      if (eventTextFiltered.length === 0) {
+        //Si lo escrito tambien es igual a 0 entonces va a retornar que no hay resultados.
+        container.innerHTML = `<div class = "noEvented"> <div class="newtons-cradle">
+
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    
+    </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
+      } else {
+        container.innerHTML = " ";
+
+        imprimir(eventTextFiltered);
+      } //Si event text filter no es 0 que imprima lo que filtro.
+    } else {
+      let eventosFiltradosPorNombreYCategoria = eventTextFiltered.filter(
+        (evento) => arrayCategoriasChequeadas.includes(evento.category) //Si hay alguna categoria chequeada va a hacer un array de los checkbox y el buscador
+      );
+      container.innerHTML = " "; //vacio el container e imprimo los que haya filtrado
+      if (eventosFiltradosPorNombreYCategoria.length === 0) {
+        //Si no hay resultados en los checkbox y en el buscado imprime que no hay nada.
+        container.innerHTML = `<div class = "noEvented"> 
+        
       <div class="newtons-cradle">
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
       <div class="newtons-cradle__dot"></div>
+
       </div>  <p class="noResultadoTexto"> Sorry! <span class = "xd"> not events found...</span> </p> </div>  `;
-    } else {
-      imprimir(eventosFiltradosPorNombreYCategoria);
-    } //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
+      } else {
+        imprimir(eventosFiltradosPorNombreYCategoria);
+      } //Si esto no es 0 va a imprimir lo filtrado por nombre y categoria.
+    }
   }
 }
 
-
-}
-
-dataPorApi()
+dataPorApi();

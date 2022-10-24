@@ -5,12 +5,12 @@ let idGuardado = location.search.slice(8); //Este search no tiene nada que ver c
 console.log(idGuardado);
 
 async function dataPorApi() {
-  let dataApi = await fetch("https://mind-hub.up.railway.app/amazing");
+  let dataApi = await fetch("https://amazing-events.herokuapp.com/api/events");
   dataApi = await dataApi.json();
 
   let events = dataApi.events;
 
-  let eventoElegido = events.filter((i) => i.id === idGuardado); // Hago una variable que sea = a eventos filtrados i y hago que evnetos filtrados i sea igual al ID que guarde.
+  let eventoElegido = events.filter((i) => i._id === idGuardado); // Hago una variable que sea = a eventos filtrados i y hago que evnetos filtrados i sea igual al ID que guarde.
   for (i = 0; i < eventoElegido.length; i++) {
     //Bucle de evento elegido LA CLASICA PA
     contenedorDetalles.innerHTML = `
