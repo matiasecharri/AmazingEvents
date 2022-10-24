@@ -12,7 +12,7 @@ function imprimir(arreglo) {
     </div>
    
     <div class="botones">
-    <a href="details.html?evento=${arreglo[i]._id}" class="btn">Know more info</a>
+    <a href="details.html?evento=${arreglo[i].id}" class="btn">Know more info</a>
     <div/>
   </div>
   </div>`;
@@ -33,7 +33,7 @@ function impressCheck(stringQueSepareArriba) {
 
 //----------------------------------------------------------TODO LO DEMAS-------------------------------------------------------------------------------------------
 async function dataPorApi() {
-  let dataApi = await fetch("https://amazing-events.herokuapp.com/api/events");
+  let dataApi = await fetch("https://mind-hub.up.railway.app/amazing");
   dataApi = await dataApi.json();
   console.log(dataApi);
   let events = dataApi.events;
