@@ -9,7 +9,7 @@ async function stats() {
     let dataApi = await fetch("https://mh-amazing.herokuapp.com/amazing");
     dataApi = await dataApi.json();
 
-    let date = dataApi.date.slice(0, 10);
+    // let date = dataApi.date.slice(0, 10);
     let events = dataApi.events;
 
     let nuevosEventos = events.map((i) => ({
@@ -118,7 +118,7 @@ async function stats2() {
       let revenuesIni = 0;
       let revenues1 = categorys.reduce(function (accumulator, element) {
         return accumulator + element.revenues;
-      }, revenuesIni);
+      }, revenuesIni); // cambiar por 0
 
       let capacityIni = 0;
       let capacity1 = categorys.reduce(function (accumulator, element) {
@@ -194,15 +194,15 @@ async function stats3() {
       events.filter((event) => event.category === "Museum")
     );
 
-    EventsForCategory = EventsForCategory.filter((array) => array.length !== 0);
+    EventsForCategory = EventsForCategory.filter((array) => array.length !== 0); // Si hay un array que no conttiene nada con esto lo pasa de largo, como era el caso de foods.
     console.log(EventsForCategory);
     let eventsFilter = [];
 
     for (const categorys of EventsForCategory) {
-      let revenuesIni = 0;
+      let revenuesIni = 0; // 0 para que inicie contando desde el inicio, si no se pone el 0 como inicial va a empezar sumando desde el primer elemento 
       let revenues1 = categorys.reduce(function (accumulator, element) {
         return accumulator + element.revenues;
-      }, revenuesIni);
+      }, revenuesIni); // suma box
 
       let capacityIni = 0;
       let capacity1 = categorys.reduce(function (accumulator, element) {
