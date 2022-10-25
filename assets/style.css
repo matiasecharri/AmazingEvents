@@ -702,9 +702,12 @@ label {
 
 
 @media (max-width: 1025px) {
-  .checks5 {
-    display: none;
-  }
+  .containerbar2{display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+height: 20vh;
+gap: 1px;}
   
 }
 
