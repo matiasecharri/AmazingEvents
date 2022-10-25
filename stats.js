@@ -2,6 +2,8 @@ let table = document.getElementById("laTablita");
 let table2 = document.getElementById("laTablita2");
 let table3 = document.getElementById("laTablita3");
 
+//-----------------------------------------------------------------TABLA NUMERO 1--------------------------------------------------------------------------------------//
+
 async function stats() {
   try {
     let dataApi = await fetch("https://mh-amazing.herokuapp.com/amazing");
@@ -74,6 +76,8 @@ async function stats() {
   }
 }
 
+//-----------------------------------------------------------------TABLA NUMERO 2--------------------------------------------------------------------------------------//
+
 async function stats2() {
   try {
     let data = await fetch(
@@ -92,8 +96,7 @@ async function stats2() {
     });
     let EventsForCategory = [];
     EventsForCategory.push(events.filter((event) => event.category === "Food"));
-    EventsForCategory.push(
-      events.filter((event) => event.category === "Cinema")
+    EventsForCategory.push(events.filter((event) => event.category === "Cinema")
     );
     EventsForCategory.push(
       events.filter((event) => event.category === "Party")
@@ -108,7 +111,7 @@ async function stats2() {
     EventsForCategory.push(
       events.filter((event) => event.category === "Museum")
     );
-    console.log(EventsForCategory[0]);
+    // console.log(EventsForCategory[0]);
     let eventsFilter = [];
 
     for (const categorys of EventsForCategory) {
@@ -142,7 +145,7 @@ async function stats2() {
    
     
     <td class="tdTabla" >${i.name} </td>
-    <td class="tdTabla">${i.revenues}</td>
+    <td class="tdTabla">$ ${i.revenues}</td>
     <td class="tdTabla">${i.percentageOfAssitance.toFixed(2)}%</td>
   </tr>
 
@@ -152,6 +155,8 @@ async function stats2() {
     console.log("Error");
   }
 }
+
+//-----------------------------------------------------------------TABLA NUMERO 3--------------------------------------------------------------------------------------//
 
 async function stats3() {
   try {
@@ -227,7 +232,7 @@ async function stats3() {
       <tr>     
    
     <td class="tdTabla" >${i.name} </td>
-    <td class="tdTabla">${i.revenues}</td>
+    <td class="tdTabla">$ ${i.revenues}</td>
     <td class="tdTabla">${i.percentageOfAssitance.toFixed(2)}%</td>
   </tr>
 
