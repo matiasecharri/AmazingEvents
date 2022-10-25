@@ -3,35 +3,36 @@ let table2 = document.getElementById("laTablita2");
 let table3 = document.getElementById("laTablita3");
 
 async function stats() {
-  let dataApi = await fetch("https://mh-amazing.herokuapp.com/amazing");
-  dataApi = await dataApi.json();
+  try {
+    let dataApi = await fetch("https://mh-amazing.herokuapp.com/amazing");
+    dataApi = await dataApi.json();
 
-  let date = dataApi.date.slice(0, 10);
-  let events = dataApi.events;
+    let date = dataApi.date.slice(0, 10);
+    let events = dataApi.events;
 
-  let nuevosEventos = events.map((i) => ({
-    name: i.name,
-    porcentajeDeAsis: ((i.assistance * 100) / i.capacity).toFixed(2),
-    capacidad: i.capacity,
-  }));
+    let nuevosEventos = events.map((i) => ({
+      name: i.name,
+      porcentajeDeAsis: ((i.assistance * 100) / i.capacity).toFixed(2),
+      capacidad: i.capacity,
+    }));
 
-  let eventoConMayorAsistencia = [...nuevosEventos].sort(
-    (a, b) => b.porcentajeDeAsis - a.porcentajeDeAsis
-  );
-  eventoConMayorAsistencia = eventoConMayorAsistencia[0];
+    let eventoConMayorAsistencia = [...nuevosEventos].sort(
+      (a, b) => b.porcentajeDeAsis - a.porcentajeDeAsis
+    );
+    eventoConMayorAsistencia = eventoConMayorAsistencia[0];
 
-  let eventoConMenorAsistencia = [...nuevosEventos].sort(
-    (a, b) => a.porcentajeDeAsis - b.porcentajeDeAsis
-  );
-  eventoConMenorAsistencia = eventoConMenorAsistencia[0];
+    let eventoConMenorAsistencia = [...nuevosEventos].sort(
+      (a, b) => a.porcentajeDeAsis - b.porcentajeDeAsis
+    );
+    eventoConMenorAsistencia = eventoConMenorAsistencia[0];
 
-  let eventoConMayorCapacidad = [...nuevosEventos].sort(
-    (a, b) => b.capacidad - a.capacidad
-  );
-  eventoConMayorCapacidad = eventoConMayorCapacidad[0];
+    let eventoConMayorCapacidad = [...nuevosEventos].sort(
+      (a, b) => b.capacidad - a.capacidad
+    );
+    eventoConMayorCapacidad = eventoConMayorCapacidad[0];
 
-  function imprimirTabla(container, objeto1, objeto2, objeto3) {
-    container.innerHTML += ` 
+    function imprimirTabla(container, objeto1, objeto2, objeto3) {
+      container.innerHTML += ` 
 <thead>
   <tr>
     <th scope="col"></th>
@@ -61,13 +62,16 @@ async function stats() {
 
 
 `;
+    }
+    imprimirTabla(
+      laTablita,
+      eventoConMayorAsistencia,
+      eventoConMenorAsistencia,
+      eventoConMayorCapacidad
+    );
+  } catch (error) {
+    console.log("Error");
   }
-  imprimirTabla(
-    laTablita,
-    eventoConMayorAsistencia,
-    eventoConMenorAsistencia,
-    eventoConMayorCapacidad
-  );
 }
 
 async function stats2() {
