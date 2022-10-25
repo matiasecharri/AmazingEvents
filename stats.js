@@ -119,49 +119,34 @@ async function stats2() {
       }, capacityIni);
 
       let assisIni = 0;
-      let assis = categorys.reduce(function (
-        accumulator,
-        element
-      ) {
+      let assis = categorys.reduce(function (accumulator, element) {
         return accumulator + Number(element.assistance);
-      },
-      assisIni);
+      }, assisIni);
 
       eventsFilter.push({
         name: categorys[0].category,
         revenues: revenues1,
         capacity: capacity1,
-        percentageOfAssitance: assis*100 / capacity1,
+        percentageOfAssitance: (assis * 100) / capacity1,
       });
-      
     }
-    let laTablita2 = document.getElementById("laTablita2")
-    
-    for (i of eventsFilter){
-      laTablita2.innerHTML +=
-      `  <tr>
+    let laTablita2 = document.getElementById("laTablita2");
+
+    for (i of eventsFilter) {
+      laTablita2.innerHTML += `  <tr>
       
    
     
     <td class="tdTabla" >${i.name} </td>
     <td class="tdTabla">${i.revenues}</td>
-    <td class="tdTabla">${(i.percentageOfAssitance).toFixed(2)}%</td>
+    <td class="tdTabla">${i.percentageOfAssitance.toFixed(2)}%</td>
   </tr>
 
-`
-
-
-
-
-
-
+`;
     }
-   
   } catch (error) {
     console.log("Error");
   }
-
- 
 }
 
 async function stats3() {
@@ -181,7 +166,7 @@ async function stats3() {
       event.revenues = event.estimate * event.price;
     });
     let EventsForCategory = [];
-   
+
     EventsForCategory.push(events.filter((event) => event.category === "Food"));
     EventsForCategory.push(
       events.filter((event) => event.category === "Cinema")
@@ -199,8 +184,8 @@ async function stats3() {
     EventsForCategory.push(
       events.filter((event) => event.category === "Museum")
     );
-   
-    EventsForCategory = EventsForCategory.filter((array) => array.length !== 0)
+
+    EventsForCategory = EventsForCategory.filter((array) => array.length !== 0);
     console.log(EventsForCategory);
     let eventsFilter = [];
 
@@ -216,27 +201,21 @@ async function stats3() {
       }, capacityIni);
 
       let assisIni = 0;
-      let assis = categorys.reduce(function (
-        accumulator,
-        element
-      ) {
+      let assis = categorys.reduce(function (accumulator, element) {
         return accumulator + Number(element.estimate);
-      },
-      assisIni);
+      }, assisIni);
 
       eventsFilter.push({
         name: categorys[0].category,
         revenues: revenues1,
         capacity: capacity1,
-        percentageOfAssitance: assis*100 / capacity1,
+        percentageOfAssitance: (assis * 100) / capacity1,
       });
-      
     }
-    let laTablita3 = document.getElementById("laTablita3")
-    
-    for (i of eventsFilter){
-      laTablita3.innerHTML +=
-      ` 
+    let laTablita3 = document.getElementById("laTablita3");
+
+    for (i of eventsFilter) {
+      laTablita3.innerHTML += ` 
       
       
       
@@ -245,33 +224,16 @@ async function stats3() {
    
     <td class="tdTabla" >${i.name} </td>
     <td class="tdTabla">${i.revenues}</td>
-    <td class="tdTabla">${(i.percentageOfAssitance).toFixed(2)}%</td>
+    <td class="tdTabla">${i.percentageOfAssitance.toFixed(2)}%</td>
   </tr>
 
-`
-
-
-
-
-
-
+`;
     }
-   
   } catch (error) {
     console.log("Error");
   }
-
- 
 }
-
-
-
-
-
-
-
-
 
 stats();
 stats2();
-stats3()
+stats3();
