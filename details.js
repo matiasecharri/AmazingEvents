@@ -24,9 +24,9 @@ async function dataPorApi() {
 
 <div class="card-body">
   <h5 class="detailsTitle">${eventoElegido[i].name} </h5>
-  <p class="card-text">${eventoElegido[i].description}</p>
+ <div class= "texto-carta"> <p class="card-text">${eventoElegido[i].description}</p> <div>
   <p class="card-text"> <span class="spanDeDetalles"> Price: </span>$${eventoElegido[i].price}</p>
-  <p class="card-text"> <span class="spanDeDetalles"> Date:  </span> ${eventoElegido[i].date}</p>
+  <p class="card-text"> <span class="spanDeDetalles"> Date:  </span> ${eventoElegido[i].date.slice(0,10)}</p>
   <p class="card-text"><span class="spanDeDetalles">  Place:  </span> ${eventoElegido[i].place}</p>
   <p class="card-text"> <span class="spanDeDetalles"> Capacity:  </span> ${eventoElegido[i].capacity}</p>
     <p class="card-text"> <span class="spanDeDetalles"> Category: </span> ${eventoElegido[i].category}</p>

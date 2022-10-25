@@ -167,7 +167,7 @@ async function stats2() {
 async function stats3() {
   try {
     let data = await fetch(
-      "https://mh-amazing.herokuapp.com/amazing?time=past"
+      "https://mh-amazing.herokuapp.com/amazing?time=upcoming"
     );
     data = await data.json();
     let events = data.events;
@@ -175,12 +175,13 @@ async function stats3() {
 
     events.map((event) => {
       event.percentageOfAssitance = (
-        (event.assistance / event.capacity) *
+        (event.estimate / event.capacity) *
         100
       ).toFixed(2);
-      event.revenues = event.assistance * event.price;
+      event.revenues = event.estimate * event.price;
     });
     let EventsForCategory = [];
+   
     EventsForCategory.push(events.filter((event) => event.category === "Food"));
     EventsForCategory.push(
       events.filter((event) => event.category === "Cinema")
@@ -198,7 +199,9 @@ async function stats3() {
     EventsForCategory.push(
       events.filter((event) => event.category === "Museum")
     );
-    console.log(EventsForCategory[0]);
+   
+    EventsForCategory = EventsForCategory.filter((array) => array.length !== 0)
+    console.log(EventsForCategory);
     let eventsFilter = [];
 
     for (const categorys of EventsForCategory) {
@@ -217,7 +220,7 @@ async function stats3() {
         accumulator,
         element
       ) {
-        return accumulator + Number(element.assistance);
+        return accumulator + Number(element.estimate);
       },
       assisIni);
 
