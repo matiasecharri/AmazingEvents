@@ -5,7 +5,7 @@ let idGuardado = location.search.slice(8); //Este search no tiene nada que ver c
 console.log(idGuardado);
 
 async function dataPorApi() {
-  let dataApi = await fetch("https://mind-hub.up.railway.app/amazing");
+  let dataApi = await fetch("https://mh-amazing.herokuapp.com/amazing");
   dataApi = await dataApi.json();
 
   let events = dataApi.events;
