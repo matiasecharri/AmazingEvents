@@ -709,6 +709,9 @@ label {
 
 height: 20vh;
 gap: 1px;}
+
+
+
   
 }
 
@@ -904,4 +907,29 @@ gap: 1px;}
   font-weight: 500;}
 
 
+  @media (max-width: 1280px) {
+    .containerbar2{display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   
+  height: 10vh;
+  gap: 1px;}
+  
+  .form-check-label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    display: none;
+  }
+  
+
+  .form-check-input { display: none;}
+  #checkboxbar{display: none;}
+  .containerbar2{display: flex;
+  justify-content: center;
+align-items: center;
+
+
+
+}
+    
+  }
