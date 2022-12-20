@@ -3,8 +3,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
-
 .logo {
   width: 150px;
   height: 40px;
@@ -16,7 +14,7 @@ header {
 }
 
 #header {
-  background-color: rgb(36, 36, 36);
+  background-color: rgba(24, 22, 22, 0.356);
   min-height: 10.8vh;
 }
 
@@ -66,10 +64,10 @@ img:hover {
 /* From cssbuttons.io by @harmankanda.github.io/New */
 
 .containertitle {
-  background-color: #f4d03f;
-  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+  background-color: #ffffff00;
+  /* background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%); */
 
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 10px; */
   margin-bottom: 20px;
 
   min-height: 20vh;
@@ -77,22 +75,72 @@ img:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0px 0px 150px 150px;
+  cursor: pointer;
 }
+
+.containertitlemain {
+  background-color: #ffffff00;
+
+
+  margin-bottom: 20px;
+
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+
+
+}
+
+#miTexto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+  font-size: 36px;
+  text-align: center;
+ 
+  z-index: 100;
+  width: 80%;
+}
+
+#miTexto h1{
+  font-size: 100px;
+  color: #f1f1f1;
+}
+
+
+
+#miVideo{
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2;
+
+}
+
+
 
 
 h1 {
   margin-top: 10px;
   font-size: 700%;
-  color: rgb(244, 244, 244);
+  color: rgb(41, 39, 39);
   font-family: Poppins;
 
-  border-bottom: #faf3f340 solid 7px;
+ 
   border-radius: 150px;
 }
 
 h1:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(231, 45, 107);
 
   transition: ease-in-out 150ms;
 }
@@ -101,15 +149,6 @@ btn btn-outline-success:hover {
   background-color: #a9c9ff;
 }
 
-
-
-
-
-
-
-
-
-
 main {
   display: flex;
   flex-wrap: wrap;
@@ -117,13 +156,11 @@ main {
   align-items: center;
   max-width: 100%;
   min-height: 47.9vh;
-background-color: white;
-    background-repeat: no-repeat;
+  background-color: white;
+  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position-y: 50px;
- 
-  
 
   gap: 45px;
 
@@ -131,6 +168,9 @@ background-color: white;
 
   padding-bottom: 20px;
 }
+
+
+
 
 .mainsincheck {
   min-height: 54vh;
@@ -151,16 +191,15 @@ background-color: white;
   height: 35px;
 }
 
-hr{ width: 50%;
-color: #0e0f0f46;
-margin-top: 5px;
-margin-bottom: 10px;
-border-radius: 200px;
+hr {
+  width: 50%;
+  color: #0e0f0f46;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 200px;
 }
 
 footer {
-
-  
   min-height: 13.1vh;
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(78, 78, 78, 0.459) 0px 20px 30px 2px;
@@ -180,32 +219,25 @@ footer {
   justify-content: center;
   gap: 20px;
   align-items: center;
-
 }
 
-
-
 .imgfot {
- width: 40px;
-border-radius: 35px;
-
-  
-  
+  width: 40px;
+  border-radius: 35px;
 }
 
 .imgfot:hover {
- background-color: #16a085;
- opacity: 5.5;
+  background-color: #16a085;
+  opacity: 5.5;
 }
 
 .footdiv2 {
   color: aliceblue;
   margin-right: 25px;
   margin-left: 25px;
-  
 }
 
-h6{
+h6 {
   font-size: 10px;
   color: #2b292a;
 }
@@ -260,10 +292,6 @@ label {
   font-size: 12px;
 }
 
-
-
-
-
 /* /////////////////////////////////////////////////////////////////////////animated */
 /* From uiverse.io by @G4b413l */
 .newtons-cradle {
@@ -276,36 +304,36 @@ label {
   justify-content: center;
   width: var(--uib-size);
   height: var(--uib-size);
- }
- 
- .newtons-cradle__dot {
+}
+
+.newtons-cradle__dot {
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
   width: 25%;
   transform-origin: center top;
- }
- 
- .newtons-cradle__dot::after {
-  content: '';
+}
+
+.newtons-cradle__dot::after {
+  content: "";
   display: block;
   width: 100%;
   height: 25%;
   border-radius: 50%;
   background-color: var(--uib-color);
- }
- 
- .newtons-cradle__dot:first-child {
+}
+
+.newtons-cradle__dot:first-child {
   animation: swing var(--uib-speed) linear infinite;
- }
- 
- .newtons-cradle__dot:last-child {
+}
+
+.newtons-cradle__dot:last-child {
   animation: swing2 var(--uib-speed) linear infinite;
- }
+}
 
 /* /////////////////////////////////////////////////////////////////////////animated */
- /* From uiverse.io by @fanishah */
+/* From uiverse.io by @fanishah */
 .gegga {
   width: 0;
 }
@@ -357,139 +385,138 @@ label {
   }
 }
 
- 
- @keyframes swing {
+@keyframes swing {
   0% {
-   transform: rotate(0deg);
-   animation-timing-function: ease-out;
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
   }
- 
+
   25% {
-   transform: rotate(70deg);
-   animation-timing-function: ease-in;
+    transform: rotate(70deg);
+    animation-timing-function: ease-in;
   }
- 
+
   50% {
-   transform: rotate(0deg);
-   animation-timing-function: linear;
+    transform: rotate(0deg);
+    animation-timing-function: linear;
   }
- }
- 
- @keyframes swing2 {
+}
+
+@keyframes swing2 {
   0% {
-   transform: rotate(0deg);
-   animation-timing-function: linear;
+    transform: rotate(0deg);
+    animation-timing-function: linear;
   }
- 
+
   50% {
-   transform: rotate(0deg);
-   animation-timing-function: ease-out;
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
   }
- 
+
   75% {
-   transform: rotate(-70deg);
-   animation-timing-function: ease-in;
+    transform: rotate(-70deg);
+    animation-timing-function: ease-in;
   }
- }
- 
+}
+
 /* /////////////////////////////////////////////////////////////////////////animated */
 
 /* From uiverse.io by @Z-C-Code */
 @keyframes square-animation {
   0% {
-   left: 0;
-   top: 0;
+    left: 0;
+    top: 0;
   }
- 
+
   10.5% {
-   left: 0;
-   top: 0;
+    left: 0;
+    top: 0;
   }
- 
+
   12.5% {
-   left: 32px;
-   top: 0;
+    left: 32px;
+    top: 0;
   }
- 
+
   23% {
-   left: 32px;
-   top: 0;
+    left: 32px;
+    top: 0;
   }
- 
+
   25% {
-   left: 64px;
-   top: 0;
+    left: 64px;
+    top: 0;
   }
- 
+
   35.5% {
-   left: 64px;
-   top: 0;
+    left: 64px;
+    top: 0;
   }
- 
+
   37.5% {
-   left: 64px;
-   top: 32px;
+    left: 64px;
+    top: 32px;
   }
- 
+
   48% {
-   left: 64px;
-   top: 32px;
+    left: 64px;
+    top: 32px;
   }
- 
+
   50% {
-   left: 32px;
-   top: 32px;
+    left: 32px;
+    top: 32px;
   }
- 
+
   60.5% {
-   left: 32px;
-   top: 32px;
+    left: 32px;
+    top: 32px;
   }
- 
+
   62.5% {
-   left: 32px;
-   top: 64px;
+    left: 32px;
+    top: 64px;
   }
- 
+
   73% {
-   left: 32px;
-   top: 64px;
+    left: 32px;
+    top: 64px;
   }
- 
+
   75% {
-   left: 0;
-   top: 64px;
+    left: 0;
+    top: 64px;
   }
- 
+
   85.5% {
-   left: 0;
-   top: 64px;
+    left: 0;
+    top: 64px;
   }
- 
+
   87.5% {
-   left: 0;
-   top: 32px;
+    left: 0;
+    top: 32px;
   }
- 
+
   98% {
-   left: 0;
-   top: 32px;
+    left: 0;
+    top: 32px;
   }
- 
+
   100% {
-   left: 0;
-   top: 0;
+    left: 0;
+    top: 0;
   }
- }
- 
- .loader {
+}
+
+.loader {
   position: relative;
   width: 96px;
   height: 96px;
   transform: rotate(45deg);
- }
- 
- .loader-square {
+}
+
+.loader-square {
   position: absolute;
   top: 0;
   left: 0;
@@ -502,40 +529,39 @@ label {
   background-position: center;
   background-attachment: fixed;
   animation: square-animation 10s ease-in-out infinite both;
- }
- 
- .loader-square:nth-of-type(0) {
-  animation-delay: 0s;
- }
- 
- .loader-square:nth-of-type(1) {
-  animation-delay: -1.4285714286s;
- }
- 
- .loader-square:nth-of-type(2) {
-  animation-delay: -2.8571428571s;
- }
- 
- .loader-square:nth-of-type(3) {
-  animation-delay: -4.2857142857s;
- }
- 
- .loader-square:nth-of-type(4) {
-  animation-delay: -5.7142857143s;
- }
- 
- .loader-square:nth-of-type(5) {
-  animation-delay: -7.1428571429s;
- }
- 
- .loader-square:nth-of-type(6) {
-  animation-delay: -8.5714285714s;
- }
- 
- .loader-square:nth-of-type(7) {
-  animation-delay: -10s;
- }
+}
 
+.loader-square:nth-of-type(0) {
+  animation-delay: 0s;
+}
+
+.loader-square:nth-of-type(1) {
+  animation-delay: -1.4285714286s;
+}
+
+.loader-square:nth-of-type(2) {
+  animation-delay: -2.8571428571s;
+}
+
+.loader-square:nth-of-type(3) {
+  animation-delay: -4.2857142857s;
+}
+
+.loader-square:nth-of-type(4) {
+  animation-delay: -5.7142857143s;
+}
+
+.loader-square:nth-of-type(5) {
+  animation-delay: -7.1428571429s;
+}
+
+.loader-square:nth-of-type(6) {
+  animation-delay: -8.5714285714s;
+}
+
+.loader-square:nth-of-type(7) {
+  animation-delay: -10s;
+}
 
 .bar11 {
   margin-right: 0px;
@@ -589,11 +615,11 @@ label {
   margin-left: 10px;
 }
 
-.tituloTablaDeC{
- text-align: center;
+.tituloTablaDeC {
+  text-align: center;
 }
 
-.tdTabla{
+.tdTabla {
   text-align: center;
 }
 
@@ -678,41 +704,30 @@ label {
     font-size: 40px;
   }
 
-  .container15 .right{
-
+  .container15 .right {
     justify-content: center;
     display: flex;
     flex-direction: column;
   }
 
-  .container15{
+  .container15 {
     width: 85%;
-   
-    
   }
 
-  .textocontacto{
+  .textocontacto {
     font-size: 15px;
   }
-
-
-
 }
 
-
-
-
 @media (max-width: 1025px) {
-  .containerbar2{display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  .containerbar2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
-height: 20vh;
-gap: 1px;}
-
-
-
-  
+    height: 20vh;
+    gap: 1px;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -744,17 +759,16 @@ gap: 1px;}
   transition-duration: 600ms;
 }
 
-
-.form-check-input:checked {     background-color: #e6376c;     border-color: transparent;
+.form-check-input:checked {
+  background-color: #e6376c;
+  border-color: transparent;
 }
-.form-check-input{
+.form-check-input {
   background-color: #edf1f1;
   border-color: rgb(199, 192, 192);
   border-radius: 200px !important;
   transition-duration: 430ms;
 }
-
-
 
 .navPAST::after {
   content: "";
@@ -764,10 +778,10 @@ gap: 1px;}
   position: absolute;
   background-color: rgba(255, 255, 255, 0.281);
   bottom: 40px;
- margin-left: 8px;
+  margin-left: 8px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.70s ease;
+  transition: transform 0.7s ease;
 }
 
 .navPAST:hover::after {
@@ -781,10 +795,10 @@ gap: 1px;}
   position: absolute;
   background-color: rgba(255, 255, 255, 0.281);
   bottom: 40px;
- margin-left: 8px;
+  margin-left: 8px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.80s ease;
+  transition: transform 0.8s ease;
 }
 
 .navUP:hover::after {
@@ -799,10 +813,10 @@ gap: 1px;}
   position: absolute;
   background-color: rgba(255, 255, 255, 0.281);
   bottom: 40px;
- margin-left: 8px;
+  margin-left: 8px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.70s ease;
+  transition: transform 0.7s ease;
 }
 
 .navHOME:hover::after {
@@ -817,10 +831,10 @@ gap: 1px;}
   position: absolute;
   background-color: rgba(255, 255, 255, 0.281);
   bottom: 40px;
- margin-left: 8px;
+  margin-left: 8px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.70s ease;
+  transition: transform 0.7s ease;
 }
 
 .navCONT:hover::after {
@@ -835,20 +849,15 @@ gap: 1px;}
   position: absolute;
   background-color: rgba(255, 255, 255, 0.281);
   bottom: 40px;
- margin-left: 8px;
+  margin-left: 8px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.60s ease;
+  transition: transform 0.6s ease;
 }
 
 .navSTATS:hover::after {
   transform: scaleX(1);
 }
-
-
-
-
-
 
 .card img {
   width: 100%;
@@ -902,34 +911,36 @@ gap: 1px;}
   font-weight: 600;
 }
 
+.xd {
+  color: #222222;
+  font-weight: 500;
+}
 
-.xd{color: #222222;
-  font-weight: 500;}
-
-
-  @media (max-width: 1280px) {
-    .containerbar2{display: flex;
+@media (max-width: 1280px) {
+  .containerbar2 {
+    display: flex;
     justify-content: space-between;
     flex-direction: column;
-  
-  height: 10vh;
-  gap: 1px;}
-  
+
+    height: 10vh;
+    gap: 1px;
+  }
+
   .form-check-label {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     display: none;
   }
-  
 
-  .form-check-input { display: none;}
-  #checkboxbar{display: none;}
-  .containerbar2{display: flex;
-  justify-content: center;
-align-items: center;
-
-
-
-}
-    
+  .form-check-input {
+    display: none;
   }
+  #checkboxbar {
+    display: none;
+  }
+  .containerbar2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

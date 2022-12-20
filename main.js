@@ -124,3 +124,4 @@ async function dataPorApi() {
 }
 
 dataPorApi();
+imprimir(events)
