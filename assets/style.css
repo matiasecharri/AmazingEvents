@@ -16,6 +16,7 @@ header {
 #header {
   background-color: rgba(24, 22, 22, 0.199);
   min-height: 10.8vh;
+  z-index: 600;
 }
 
 #carouselExampleControls {
@@ -109,7 +110,6 @@ img:hover {
 }
 
 #miVideo {
- 
   position: fixed;
   top: 0;
   left: 0;
@@ -117,7 +117,7 @@ img:hover {
   min-height: 100%;
   object-fit: cover;
   z-index: -2;
- 
+  background-color: #13d8df2d;
 }
 
 h1 {
@@ -185,7 +185,7 @@ h1:hover {
   border-radius: 5px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 0px;
   flex-direction: column;
   padding: 10px;
   justify-content: center;
@@ -233,7 +233,6 @@ main {
   max-width: 100%;
   min-height: 47.9vh;
   background-color: white;
-  background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -751,6 +750,38 @@ label {
     font-size: 10px;
   }
 }
+
+@media (max-width: 600px) {
+  #miTexto h1{
+    font-size: 50px;
+
+  }
+  
+  #header {
+    background-color: rgba(24, 22, 22, 0.863);
+    min-height: 12.8vh;
+    z-index: 600;
+  }
+
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+ 
+  }
+  }
+
+  .mainsincheck {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textocontacto {
+    font-size: 10px;
+  }
+
 
 @media (max-width: 565px) {
   main {
